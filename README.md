@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Branch Naming Convention
+\<team>/\<trello-task>/\<description>
+- e.g. web/STA-3/add-mongodb-connection
+
+
 
 ## Getting Started
 
