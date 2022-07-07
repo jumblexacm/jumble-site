@@ -1,8 +1,16 @@
 import Head from 'next/head'
 import clientPromise from '../lib/mongodb'
+import { useEffect } from 'react';
 import styles from '../styles/Home.module.css'
+import Timeline from '../components/Timeline';
 
 export default function Home({ isConnected }) {
+
+  useEffect(() => {
+    const connection = (isConnected) ? ('You are connected to MongoDB') : ('You are NOT connected to MongoDB');
+    console.log(connection); 
+  }, );
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,17 +19,8 @@ export default function Home({ isConnected }) {
       </Head>
 
       <main className={styles.main}>
-        {isConnected ? (
-          <h2 className="subtitle">You are connected to MongoDB</h2>
-        ) : (
-          <h2 className="subtitle">
-            You are NOT connected to MongoDB. 
-          </h2>
-        )}
-
-      </main>
-
-      
+        <Timeline></Timeline>
+      </main>   
     </div>
   )
 }
