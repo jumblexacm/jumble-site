@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import styles from '../styles/Home.module.css'
 import Timeline from '../components/Timeline';
 
-export default function Home({ isConnected }) {
+export default function Home({ isConnected, posts }) {
 
   useEffect(() => {
     const connection = (isConnected) ? ('You are connected to MongoDB') : ('You are NOT connected to MongoDB');
@@ -19,13 +19,45 @@ export default function Home({ isConnected }) {
       </Head>
 
       <main className={styles.main}>
-        <Timeline></Timeline>
+        <Timeline posts={posts}></Timeline>
       </main>   
     </div>
   )
 }
 
 export async function getServerSideProps(context) {
+  // Temporary sample posts to simulate MongoDB data
+  const SAMPLE_POSTS = [
+    {
+      postID: 1,
+      orgID: 1,
+      date: 'July 7, 2022',
+      msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      msgAtch: null
+    },
+    {
+      postID: 2,
+      orgID: 1,
+      date: 'July 7, 2022',
+      msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      msgAtch: null
+    },
+    {
+      postID: 3,
+      orgID: 2,
+      date: 'July 7, 2022',
+      msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      msgAtch: null
+    },
+    {
+      postID: 4,
+      orgID: 3,
+      date: 'July 7, 2022',
+      msg: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      msgAtch: null
+    },
+  ]; 
+  
   try {
     await clientPromise
     // `await clientPromise` will use the default database passed in the MONGODB_URI
@@ -38,12 +70,18 @@ export async function getServerSideProps(context) {
     // db.find({}) or any of the MongoDB Node Driver commands
 
     return {
-      props: { isConnected: true },
+      props: { 
+        isConnected: true,
+        posts: SAMPLE_POSTS, 
+      },
     }
   } catch (e) {
     console.error(e)
     return {
-      props: { isConnected: false },
+      props: { 
+        isConnected: false, 
+        posts: SAMPLE_POSTS,
+      },
     }
   }
 }
