@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Gallery from './Gallery';
 
 function Post({ post }) {
 
@@ -50,6 +51,8 @@ function Post({ post }) {
       <div className="p-4 space-y-2 text-sm text-gray-600">
         {text}
       </div>
+      {(post.msgAtch) ? <Gallery images={post.msgAtch}/> : null}
+      
     </div>
   );
 
