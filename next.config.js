@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['cdn.discordapp.com'],
-  }
-}
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
