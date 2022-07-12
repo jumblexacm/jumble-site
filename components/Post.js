@@ -3,7 +3,7 @@ import Gallery from './Gallery';
 
 function Post({ post }) {
 
-  const text = post.msg.split('\n').map((str, index) => <p key={index}>{str}</p>);
+  const text = post.msg.split('\n').map((str, index) => (str) ? (<p key={index}>{str}</p>) : (<br />));
 
   const oldText = (
     <article>

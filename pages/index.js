@@ -72,7 +72,7 @@ export async function getServerSideProps(context) {
       postID: 5,
       orgID: 4,
       date: 'August 8, 2028',
-      msg: 'Sed eget laoreet sapien, non dapibus dolor.\nMaecenas molestie, tortor ac sodales tempus, dui erat consectetur ante, id facilisis eros quam id orci.\nIn aliquam, ligula at mollis porta, arcu felis pretium tellus, tempus finibus leo nibh eu arcu.\nIn sagittis lectus lacus, et lobortis lacus ultrices vel. Pellentesque metus magna, fermentum a magna et, faucibus faucibus mi.\nUt semper nulla sed scelerisque vestibulum. Pellentesque a odio turpis.\nAliquam et iaculis magna.',
+      msg: 'Sed eget laoreet sapien, non dapibus dolor.\nSingle newline above.\n\nDouble newline above.\n\n\nTriple newline above. Maecenas molestie, tortor ac sodales tempus, dui erat consectetur ante, id facilisis eros quam id orci.\nIn aliquam, ligula at mollis porta, arcu felis pretium tellus, tempus finibus leo nibh eu arcu.\nIn sagittis lectus lacus, et lobortis lacus ultrices vel. Pellentesque metus magna, fermentum a magna et, faucibus faucibus mi.\nUt semper nulla sed scelerisque vestibulum. Pellentesque a odio turpis.\nAliquam et iaculis magna.',
       msgAtch: null,
       orgName: 'Test Org Name',
       orgPic: 'https://cdn.discordapp.com/attachments/430866476795297804/995883875978981476/org_pfp.png'
