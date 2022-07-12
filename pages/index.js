@@ -41,7 +41,7 @@ export async function getServerSideProps(context) {
       ],
       orgName: 'Test Org Name',
       orgPic:
-        'https://cdn.discordapp.com/attachments/430866476795297804/995883875978981476/org_pfp.png',
+        'https://cdn.discordapp.com/attachments/532069372445851648/996269748549591071/org_pfp2.png',
     },
     {
       postID: 2,
@@ -64,7 +64,7 @@ export async function getServerSideProps(context) {
       ],
       orgName: 'Test Org Name',
       orgPic:
-        'https://cdn.discordapp.com/attachments/430866476795297804/995883875978981476/org_pfp.png',
+        'https://cdn.discordapp.com/attachments/532069372445851648/996269748549591071/org_pfp2.png',
     },
     {
       postID: 3,
@@ -84,7 +84,7 @@ export async function getServerSideProps(context) {
       msgAtch: null,
       orgName: 'Test Org Name',
       orgPic:
-        'https://cdn.discordapp.com/attachments/430866476795297804/995883875978981476/org_pfp.png',
+        'https://cdn.discordapp.com/attachments/532069372445851648/996269748549591071/org_pfp2.png',
     },
     {
       postID: 5,
