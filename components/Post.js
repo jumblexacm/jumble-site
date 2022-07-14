@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Gallery from './Gallery';
 
 function Post({ post }) {
-  const text = post.msg
+  const text = post.message_text
     .split('\n')
     .map((str, index) => (str ? <p key={index}>{str}</p> : <br />));
 
@@ -12,21 +12,21 @@ function Post({ post }) {
         <div className="flex space-x-4">
           <div>
             <Image
-              src={post.orgPic}
-              alt={post.orgName}
+              src={post.author_avatar_url}
+              alt={post.message_author}
               width={64}
               height={64}
               className="object-cover w-12 h-12 rounded-full bg-gray-500"
             />
           </div>
           <div>
-            <h4 className="text-xl font-bold">{post.orgName}</h4>
+            <h4 className="text-xl font-bold">{post.message_author}</h4>
             <div className="mt-2 text-lg text-gray-600">{post.date}</div>
           </div>
         </div>
       </div>
       <div className="p-4 space-y-2 text-sm text-gray-600">{text}</div>
-      {post.msgAtch ? <Gallery images={post.msgAtch} /> : null}
+      {post.attachment_urls ? <Gallery images={post.attachment_urls} /> : null}
     </div>
   );
 }
