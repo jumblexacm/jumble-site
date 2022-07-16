@@ -26,7 +26,7 @@ function Post({ post }) {
         </div>
       </div>
       <div className="p-4 space-y-2 text-sm text-gray-600">{text}</div>
-      {post.attachment_urls ? <Gallery images={post.attachment_urls} /> : null}
+      {post.attachment_urls.length != 0 ? <Gallery images={post.attachment_urls} /> : null}
     </div>
   );
 }
