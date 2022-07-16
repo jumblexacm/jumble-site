@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Gallery from './Gallery';
+import Link from 'next/link';
 
 function Post({ post }) {
   const text = post.msg
@@ -20,7 +21,15 @@ function Post({ post }) {
             />
           </div>
           <div>
-            <h4 className="text-xl font-bold">{post.orgName}</h4>
+            {/* CHANGE ORGNAME TO ORGID */}
+            <Link
+              href={{
+                pathname: '/organizations/[id]',
+                query: { id: post.orgName },
+              }}
+            >
+              <a className="text-xl font-bold">{post.orgName}</a>
+            </Link>
             <div className="mt-2 text-lg text-gray-600">{post.date}</div>
           </div>
         </div>
