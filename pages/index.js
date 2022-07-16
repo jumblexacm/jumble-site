@@ -10,7 +10,8 @@ export default function Home({ isConnected, posts }) {
       ? 'You are connected to MongoDB'
       : 'You are NOT connected to MongoDB';
     console.log(connection);
-   
+    const {parser, htmlOutput, toHTML } = require('discord-markdown'); //discord markdown language testing
+    console.log(toHTML('_**This**_ **is** a _test_')); //Testing: This <italics>is</italics> a <bold>test</bold>
   });
 
   return (
@@ -34,7 +35,7 @@ export async function getServerSideProps(context) {
     const Posts = await db 
     .collection("Posts")
     .find({}, { projection: {message_id: 0 } })
-    .sort({date: -1}) //+1, signifies the sort is formatted descending (oldest -> newest)
+    .sort({_id: -1}) //+1, signifies the sort is formatted descending (oldest -> newest)
     //.limit(10)
     .toArray()
 
