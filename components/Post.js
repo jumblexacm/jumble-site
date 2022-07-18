@@ -4,7 +4,7 @@ import Gallery from './Gallery';
 function Post({ post }) {
   const text = post.message_text
     .split('\n')
-    .map((str, index) => (str ? <p key={index}>{str}</p> : <br />));
+    .map((str, index) => (str ? <p key={index}>{str}</p> : <br key={index} />));
 
   return (
     <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
