@@ -33,7 +33,10 @@ export async function getServerSideProps(context) {
     const Posts = await db 
     .collection("Posts")
     .find({}, { projection: {message_id: 0 } })
-    .sort({_id: -1}) //+1, signifies the sort is formatted descending (newest -> oldest)
+    .sort({_id: -1})
+      // https://stackoverflow.com/a/5128574
+      // _id, created by MongoDB and starts with document creation time
+      // -1, signifies the sort is formatted descending (newest at top -> oldest)
     //.limit(10)
     .toArray()
 
