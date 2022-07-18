@@ -1,4 +1,4 @@
-export default function Organizations() {
+export default function OrganizationsPage() {
   return (
     <div>
       <h1>Organization List</h1>

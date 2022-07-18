@@ -1,32 +1,28 @@
 import clientPromise from '../../lib/mongodb';
+import OrgProfile from '../../components/Organizations/OrgProfile';
+import Timeline from '../../components/Timeline';
 
-export default function OrgProfile({ posts }) {
+export default function OrgProfilePage({ posts }) {
   console.log(posts);
   return (
     <div>
-      <h1>Organization Page</h1>
+      <OrgProfile />
     </div>
   );
 }
 
-// export async function getStaticPaths() {
-//   const db = (await clientPromise).db('JumbleDB');
-//   const paths = await db.collection('Posts').distinct('message_author');
-
-//   return {
-//     paths: paths,
-//     fallback: false,
-//   };
-// }
-
 export async function getServerSideProps({ params }) {
   const db = (await clientPromise).db('JumbleDB');
-  console.log(params);
-  const posts = await db.collection('Posts').find({ message_author: params });
+  const posts = await db
+    .collection('Posts')
+    .find({ org_id: '996620821286092861' })
+    .toArray();
 
-  console.log(posts);
+  //console.log(posts);
 
   return {
-    props: {},
+    props: {
+      posts: JSON.parse(JSON.stringify(posts)),
+    },
   };
 }
