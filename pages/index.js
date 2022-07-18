@@ -62,7 +62,7 @@ export async function getServerSideProps(context) {
         'https://cdn.discordapp.com/attachments/430866476795297804/995883876561977424/msg_atch_2.png',
         'https://cdn.discordapp.com/attachments/430866476795297804/995884400648658984/wawa-cat.gif',
       ],
-      orgName: 'Test Org Name',
+      orgName: 'Test Org Name 2',
       orgPic:
         'https://cdn.discordapp.com/attachments/532069372445851648/996269748549591071/org_pfp2.png',
     },
