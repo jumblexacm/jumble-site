@@ -12,11 +12,6 @@ function OrgProfile({ posts }) {
   return (
     <main className="divide-y">
       <OrgInfo orgData={orgData} />
-      {/* <div>
-        <h1 className="text-3xl text-center px-8 py-2  font-semibold">
-          Recent Announcements
-        </h1>
-      </div> */}
       <Timeline posts={posts} />
     </main>
   );
