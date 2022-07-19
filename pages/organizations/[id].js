@@ -1,24 +1,23 @@
 import clientPromise from '../../lib/mongodb';
 import OrgProfile from '../../components/Organizations/OrgProfile';
-import Timeline from '../../components/Timeline';
 
 export default function OrgProfilePage({ posts }) {
   console.log(posts);
   return (
     <div>
-      <OrgProfile />
+      <OrgProfile posts={posts} />
     </div>
   );
 }
 
 export async function getServerSideProps({ params }) {
-  const db = (await clientPromise).db('JumbleDB');
+  console.log(params.id);
+  const db = (await clientPromise).db(process.env.MONGODB_DB);
   const posts = await db
     .collection('Posts')
-    .find({ org_id: '996620821286092861' })
+    .find({ org_id: params.id }, { projection: { message_id: 0 } })
+    .sort({ _id: -1 })
     .toArray();
-
-  //console.log(posts);
 
   return {
     props: {

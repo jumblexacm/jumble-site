@@ -21,14 +21,13 @@ function Post({ post }) {
             />
           </div>
           <div>
-            {/* CHANGE ORGNAME TO ORGID */}
             <Link
               href={{
                 pathname: '/organizations/[id]',
-                query: { id: post.orgName },
+                query: { id: post.org_id },
               }}
             >
-              <a className="text-xl font-bold">{post.orgName}</a>
+              <a className="text-lg font-semibold">{post.message_author}</a>
             </Link>
             <div className="mt-2 text-lg text-gray-600">{post.date}</div>
           </div>
