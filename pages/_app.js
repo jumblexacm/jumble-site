@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import Script from 'next/script';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }) {
         });
       `}
       </Script>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }
