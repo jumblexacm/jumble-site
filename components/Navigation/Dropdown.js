@@ -4,20 +4,17 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import styles from './Dropdown.module.css';
 
+// Change path property to route to correct pages
 const menuItems = [
-  { text: 'Add Org', path: '/organizations' },
-  { text: 'Edit Org', path: '/organization' },
+  { text: 'Add Organization', path: '/' },
+  { text: 'Edit Organization', path: '/' },
 ];
 
 const ItemLink = forwardRef((props, ref) => {
   let { href, children, ...rest } = props;
   return (
     <Link href={href}>
-      <a
-        ref={ref}
-        {...rest}
-        className="hover:bg-gray-100 text-gray-900 block px-4 py-2 text-sm"
-      >
+      <a ref={ref} {...rest} className={styles.item}>
         {children}
       </a>
     </Link>
