@@ -11,15 +11,22 @@ function Post({ post }) {
     <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
       <div className="flex justify-between p-4">
         <div className="flex space-x-4">
-          <div>
-            <Image
-              src={post.author_avatar_url}
-              alt={post.message_author}
-              width={64}
-              height={64}
-              className="object-cover w-12 h-12 rounded-full bg-gray-500"
-            />
-          </div>
+          <Link
+            href={{
+              pathname: '/organizations/[id]',
+              query: { id: post.org_id },
+            }}
+          >
+            <a className="hover:contrast-80 hover:brightness-95">
+              <Image
+                src={post.author_avatar_url}
+                alt={post.message_author}
+                width={64}
+                height={64}
+                className="object-cover rounded-full"
+              />
+            </a>
+          </Link>
           <div>
             <Link
               href={{
