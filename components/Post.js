@@ -27,7 +27,9 @@ function Post({ post }) {
                 query: { id: post.org_id },
               }}
             >
-              <a className="text-lg font-semibold">{post.message_author}</a>
+              <a className="text-lg font-semibold hover:underline">
+                {post.message_author}
+              </a>
             </Link>
             <div className="mt-2 text-lg text-gray-600">{post.date}</div>
           </div>
