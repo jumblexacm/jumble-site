@@ -2,8 +2,9 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 function OrgInfo({ orgData: { author_avatar_url, message_author } }) {
-  const description =
-    'This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description.';
+  const description = '';
+  //'This is a test server';
+  //'This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description.';
   const minChars = 525;
   const [charsToShow, setcharsToShow] = useState(minChars);
   const [expanded, setExpanded] = useState(false);
@@ -32,7 +33,7 @@ function OrgInfo({ orgData: { author_avatar_url, message_author } }) {
       <h4 className="pb-5 text-center text-2xl font-semibold">
         {message_author}
       </h4>
-      <div className="px-36 text-justify space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
+      <div className="px-36 text-center space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
         <p className="text-gray-600">
           {description.slice(0, charsToShow)}
           {description.length > charsToShow ? ' ...' : ''}
