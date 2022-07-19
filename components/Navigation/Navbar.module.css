@@ -1,5 +1,5 @@
 .a {
-    @apply flex items-center px-4 -mb-1 border-b-2 border-transparent;
+    @apply relative items-center px-4 -mb-1 border-b-2 border-transparent;
 }
 
 .a:hover {

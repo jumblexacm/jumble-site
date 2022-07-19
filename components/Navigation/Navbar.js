@@ -1,4 +1,5 @@
 import styles from './Navbar.module.css';
+import Dropdown from './Dropdown';  
 
 function Navbar() {
   return (
@@ -22,14 +23,12 @@ function Navbar() {
         </a>
         <ul className="items-stretch hidden space-x-3 md:flex">
           <li className="flex">
-            <a rel="noopener noreferrer" href="#" className={styles.a}>
+            <button rel="noopener noreferrer" href="#" className={styles.a}>
               Org List
-            </a>
+            </button>
           </li>
           <li className="flex">
-            <a rel="noopener noreferrer" href="#" className={styles.a}>
-              Manage Orgs
-            </a>
+            <Dropdown />
           </li>
         </ul>
         <button className="flex justify-end p-4 md:hidden">
