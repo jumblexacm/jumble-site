@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "discord-markdown": "^2.5.1",
     "mongodb": "^4.7.0",
     "next": "12.2.0",
     "prettier": "^2.7.1",
