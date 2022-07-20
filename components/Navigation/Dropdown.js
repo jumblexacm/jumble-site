@@ -3,6 +3,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import styles from './Dropdown.module.css';
+import Navbar from './Navbar';
 
 // Change path property to route to correct pages
 const menuItems = [
@@ -30,7 +31,7 @@ function MenuItemComponent({ path, text }) {
   );
 }
 
-export default function Dropdown() {
+function Dropdown() {
   return (
     <div className={styles.menuWrapper1}>
       <div className={styles.menuWrapper2}>
@@ -67,3 +68,5 @@ export default function Dropdown() {
     </div>
   );
 }
+
+export default Dropdown;
