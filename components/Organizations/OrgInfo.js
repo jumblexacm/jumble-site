@@ -2,8 +2,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 function OrgInfo({ orgData: { author_avatar_url, message_author } }) {
-  const description = 'This is a test server'; //'';
-  //'This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description. This is a test server. This is the place where a description would go if this were a real server. But it is not a real server, so there is no real description here. Just text that looks like a description.';
+  const description = ''; //Will need to update for org description 
   const minChars = 525;
   const [charsToShow, setcharsToShow] = useState(minChars);
   const [expanded, setExpanded] = useState(false);
