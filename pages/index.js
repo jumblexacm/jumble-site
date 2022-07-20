@@ -29,7 +29,7 @@ export default function Home({ isConnected, posts }) {
 export async function getServerSideProps(context) {
   try {
     const client = await clientPromise; //connects to Database when publishing
-    const db = client.db(process.env.MONGODB_DB);
+    const db = client.db('JumbleDB');
     const posts = await db
       .collection('Posts')
       .find({}, { projection: { message_id: 0 } })
