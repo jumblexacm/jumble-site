@@ -12,7 +12,7 @@ function Navbar() {
           <a
             rel="noopener noreferrer"
             aria-label="Back to homepage"
-            className="flex items-center p-2"
+            className="flex items-center pl-4"
           >
             <Image
               src={logo}
