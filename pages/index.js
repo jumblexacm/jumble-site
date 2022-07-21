@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import clientPromise from '../lib/mongodb';
 import { useEffect } from 'react';
 import styles from '../styles/Home.module.css';
@@ -14,11 +13,6 @@ export default function Home({ isConnected, posts }) {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Jumble</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <Timeline posts={posts}></Timeline>
       </main>
