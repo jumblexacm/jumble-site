@@ -1,9 +1,15 @@
 import '../styles/globals.css';
 import Script from 'next/script';
+import Layout from '../components/Layout';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Jumble</title>
+        <link rel="icon" href="/jumble-logo.svg" />
+      </Head>
       <Script
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
@@ -19,7 +25,9 @@ function MyApp({ Component, pageProps }) {
         });
       `}
       </Script>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </>
   );
 }

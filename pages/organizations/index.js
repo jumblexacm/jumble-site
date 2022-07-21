@@ -13,7 +13,7 @@ export default function OrganizationsPage({ orgs }) {
 }
 
 export async function getServerSideProps(context) {
-  const client = await clientPromise; //connects to Database when publishing
+  const client = await clientPromise;
   const db = client.db(process.env.MONGODB_DB);
   const orgs = await db
     .collection('Orgs')
