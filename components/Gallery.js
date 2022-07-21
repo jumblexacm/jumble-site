@@ -1,12 +1,18 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
+import Modal from './Modal';
 
-function Gallery(props) {
-  const [images, setImages] = useState(props.images);
+function Gallery({ images }) {
   const [imagesToShow, setImagesToShow] = useState(5);
   const [expanded, setExpanded] = useState(false);
 
-  const showMore = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleModal = () => {
+    setShowModal((prevState) => !prevState);
+  };
+
+  const toggleExpand = () => {
     if (imagesToShow === 5) {
       setImagesToShow(20);
       setExpanded(true);
@@ -21,21 +27,25 @@ function Gallery(props) {
       <div className="container flex flex-col justify-center p-4 mx-auto">
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-5 sm:grid-cols-2">
           {images.slice(0, imagesToShow).map((image, index) => (
-            <a
-              key={index}
-              href={image}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src={image}
-                alt=""
-                width={64}
-                height={64}
-                layout="responsive"
-                className="object-cover w-full bg-gray-500 aspect-square"
-              />
-            </a>
+            <Fragment key={index}>
+              <button
+                onClick={toggleModal}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={image}
+                  alt=""
+                  width={64}
+                  height={64}
+                  layout="responsive"
+                  className="object-cover w-full bg-gray-500 aspect-square"
+                />
+              </button>
+              {showModal ? (
+                <Modal image={image} toggleModal={toggleModal} />
+              ) : null}
+            </Fragment>
           ))}
         </div>
       </div>
@@ -44,7 +54,7 @@ function Gallery(props) {
           type="button"
           title="Toggle dropdown"
           className="pb-1 flex justify-center bg-gray-200 hover:bg-gray-300"
-          onClick={showMore}
+          onClick={toggleExpand}
         >
           {expanded ? <span>Show less</span> : <span>Show more</span>}
         </button>

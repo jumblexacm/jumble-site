@@ -1,0 +1,15 @@
+.overlay {
+    @apply fixed inset-0 m-auto z-10; 
+    background-color:rgba(0,0,0,0.3);
+}
+
+.modalContainer {
+    @apply flex flex-col items-center gap-4 p-6 rounded-md shadow-md sm:py-8 sm:px-12 bg-gray-50 text-gray-800;
+    @apply fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2; 
+}
+
+.imageWrapper {
+    position: relative; 
+    width: 60vw;
+    height: 75vh;
+}
