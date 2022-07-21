@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../../public/jumble-logo.svg';
+import logo from '../../public/jumble-logo-full.png';
 
 function Footer() {
   return (
@@ -11,22 +11,23 @@ function Footer() {
             <a
               rel="noopener noreferrer"
               aria-label="Back to homepage"
-              className="flex items-center pl-4"
+              className="flex items-center px-2 ml-2"
             >
-              <Image
-                src={logo}
-                alt={'Jumble Logo'}
-                width={48}
-                height={48}
-              ></Image>
-              <h1 className="pl-4 font-semibold text-xl">Jumble</h1>
+              <div className="relative w-40 h-12">
+                <Image
+                  src={logo}
+                  alt={'Jumble Logo'}
+                  layout="fill"
+                  objectFit="contain"
+                ></Image>
+              </div>
             </a>
           </Link>
           <ul className="flex flex-wrap items-center space-x-4 sm:space-x-8">
             {/* Left side text */}
           </ul>
         </div>
-        <ul className="flex flex-wrap pl-3 pr-8 space-x-4 sm:space-x-8">
+        <ul className="flex flex-wrap pl-3 mr-8 space-x-4 sm:space-x-8">
           <li>
             <a
               rel="noopener noreferrer"
