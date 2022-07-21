@@ -1,23 +1,5 @@
 import styles from './Modal.module.css';
 import Image from 'next/image';
-import { useState } from 'react';
-
-function NaturalImage({ src, alt, width, height, layout }) {
-  const [ratio, setRatio] = useState(16 / 9);
-
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width}
-      height={height / ratio}
-      layout={layout}
-      onLoadingComplete={({ naturalWidth, naturalHeight }) =>
-        setRatio(naturalWidth / naturalHeight)
-      }
-    ></Image>
-  );
-}
 
 function Modal({ image, toggleModal }) {
   return (
