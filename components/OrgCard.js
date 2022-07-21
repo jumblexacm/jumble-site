@@ -2,7 +2,6 @@ import styles from './OrgCard.module.css';
 import Link from 'next/link';
 
 function OrgCard({ description }) {
-  const maxDescriptionChars = 140;
   return (
     <div className={styles.card}>
       <Link href="#">
