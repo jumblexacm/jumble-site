@@ -10,12 +10,12 @@ const arr = [
   { description: 'This is a short description' },
 ];
 
-function OrgList() {
+function OrgList({ orgs }) {
   return (
     <ul>
-      {arr.map((org, index) => (
+      {orgs.map((org, index) => (
         <li key={index}>
-          <OrgCard description={org.description}></OrgCard>
+          <OrgCard org={org}></OrgCard>
         </li>
       ))}
     </ul>
