@@ -2,7 +2,7 @@ import styles from './Navbar.module.css';
 import Dropdown from './Dropdown';
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../../public/jumble-logo.svg';
+import logo from '../../public/jumble-logo-full.png';
 
 function Navbar() {
   return (
@@ -12,15 +12,16 @@ function Navbar() {
           <a
             rel="noopener noreferrer"
             aria-label="Back to homepage"
-            className="flex items-center p-2"
+            className="flex items-center p-2 ml-2"
           >
-            <Image
-              src={logo}
-              alt={'Jumble Logo'}
-              width={48}
-              height={48}
-            ></Image>
-            <h1 className="pl-4 font-semibold text-xl">Jumble</h1>
+            <div className="relative w-40 h-12">
+              <Image
+                src={logo}
+                alt={'Jumble Logo'}
+                layout="fill"
+                objectFit="contain"
+              ></Image>
+            </div>
           </a>
         </Link>
 
