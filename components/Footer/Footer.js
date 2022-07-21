@@ -29,13 +29,8 @@ function Footer() {
         </div>
         <ul className="flex flex-wrap pl-3 mr-8 space-x-4 sm:space-x-8">
           <li>
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="text-black hover:text-purple-600"
-            >
-              Contact Us
-            </a>
+            <p className="text-right">Contact Us</p>
+            <p>admin@joinjumble.com</p>
           </li>
         </ul>
       </div>
