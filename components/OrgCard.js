@@ -12,16 +12,14 @@ function OrgCard({ description }) {
               <img
                 src="https://source.unsplash.com/100x100/?portrait?1"
                 alt=""
-                className="object-cover object-center w-24 h-24 rounded-full bg-gray-500"
+                className="object-cover object-center w-16 h-16 rounded-full bg-gray-500"
               />
             </div>
             <div className={styles.text}>
-              <h2 className={styles.name}>Leroy Jenkins</h2>
-              <span className={styles.description}>
-                {description.length > maxDescriptionChars
-                  ? description.slice(0, maxDescriptionChars) + '...'
-                  : description}
-              </span>
+              <h1 className={styles.name}>Leroy Jenkins</h1>
+              {description.length > 0 ? (
+                <span className={styles.description}>{description}</span>
+              ) : null}
             </div>
           </div>
         </a>

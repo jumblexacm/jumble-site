@@ -1,16 +1,21 @@
 import OrgCard from './OrgCard';
 
-const arr = [0, 1, 2, 3];
+const arr = [
+  { description: '' },
+  { description: 'This is a short description.' },
+  {
+    description:
+      'This is a test description for an org. Lets say this text was really really long and full of nothing pretty much. This is a test description for an org. Lets say this text was really really long and full of nothing pretty much. This is a test description for an org. Lets say this text was really really long and full of nothing pretty much.',
+  },
+  { description: 'This is a short description' },
+];
 
 function OrgList() {
-  const description =
-    //'This is a short description.';
-    'This is a test description for an org. Lets say this text was really really long and full of nothing pretty much. This is a test description for an org. Lets say this text was really really long and full of nothing pretty much. This is a test description for an org. Lets say this text was really really long and full of nothing pretty much.';
   return (
     <ul>
-      {arr.map((index) => (
+      {arr.map((org, index) => (
         <li key={index}>
-          <OrgCard description={description}></OrgCard>
+          <OrgCard description={org.description}></OrgCard>
         </li>
       ))}
     </ul>
