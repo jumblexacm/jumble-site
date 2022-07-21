@@ -1,0 +1,31 @@
+.menuButton {
+    @apply flex items-center px-4 -mb-1 border-b-2 border-transparent
+}
+
+.menu {
+    @apply relative inline-block text-left px-2 pt-5 pb-6 border-b-2 border-transparent
+}
+
+.menu:hover {
+    @apply text-purple-600 border-purple-600 
+}
+
+.menuItems {
+    @apply origin-top-right absolute right-0 w-56 mt-4 rounded-md shadow-lg bg-white
+}
+
+.item {
+    @apply hover:bg-gray-100 text-gray-900 block px-4 py-2 text-sm
+}
+
+.menuWrapper1 {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.menuWrapper2 {
+    display: table-cell;
+    vertical-align: middle;
+}
+

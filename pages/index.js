@@ -1,8 +1,7 @@
-import Head from 'next/head';
 import clientPromise from '../lib/mongodb';
 import { useEffect } from 'react';
 import styles from '../styles/Home.module.css';
-import Timeline from '../components/Timeline';
+import Timeline from '../components/Timeline/Timeline';
 
 export default function Home({ isConnected, posts }) {
   useEffect(() => {
@@ -14,11 +13,6 @@ export default function Home({ isConnected, posts }) {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Jumble</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={styles.main}>
         <Timeline posts={posts}></Timeline>
       </main>
@@ -30,7 +24,7 @@ export async function getServerSideProps(context) {
   try {
     const client = await clientPromise; //connects to Database when publishing
     const db = client.db(process.env.MONGODB_DB);
-    const Posts = await db
+    const posts = await db
       .collection('Posts')
       .find({}, { projection: { message_id: 0 } })
       .sort({ _id: -1 })
@@ -43,7 +37,7 @@ export async function getServerSideProps(context) {
     return {
       props: {
         isConnected: true,
-        posts: JSON.parse(JSON.stringify(Posts)),
+        posts: JSON.parse(JSON.stringify(posts)),
       },
     };
   } catch (e) {
