@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 
 // Change path property to route to correct pages
 const menuItems = [
-  { text: 'Add Organization', path: '/' },
+  { text: 'Add Organization', path: '/forms/add' },
   { text: 'Edit Organization', path: '/' },
 ];
 
