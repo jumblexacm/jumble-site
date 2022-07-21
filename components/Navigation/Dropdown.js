@@ -7,7 +7,7 @@ import styles from './Dropdown.module.css';
 // Change path property to route to correct pages
 const menuItems = [
   { text: 'Add Organization', path: '/forms/add' },
-  { text: 'Edit Organization', path: '/' },
+  { text: 'Edit Organization', path: '/forms/edit' },
 ];
 
 const ItemLink = forwardRef((props, ref) => {
