@@ -3,7 +3,6 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import styles from './Dropdown.module.css';
-import Navbar from './Navbar';
 
 // Change path property to route to correct pages
 const menuItems = [

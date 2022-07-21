@@ -3,7 +3,7 @@
 }
 
 .menu {
-    @apply relative inline-block text-left px-2 pt-5 pb-6 border-b-2 border-transparent
+    @apply relative inline-block text-left px-2 pt-5 pb-6 border-b-2 border-transparent z-10
 }
 
 .menu:hover {
