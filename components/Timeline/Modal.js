@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function Modal({ image, toggleModal }) {
   return (
-    <div className={styles.overlay} onClick={toggleModal}>
+    <div className={styles.overlay}>
       <div className={styles.modalContainer}>
         <button className="absolute top-1 right-1" onClick={toggleModal}>
           <svg
