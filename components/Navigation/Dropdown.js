@@ -3,12 +3,11 @@ import { Menu, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import styles from './Dropdown.module.css';
-import Navbar from './Navbar';
 
 // Change path property to route to correct pages
 const menuItems = [
-  { text: 'Add Organization', path: '/' },
-  { text: 'Edit Organization', path: '/' },
+  { text: 'Add Organization', path: '/forms/add' },
+  { text: 'Edit Organization', path: '/forms/edit' },
 ];
 
 const ItemLink = forwardRef((props, ref) => {
