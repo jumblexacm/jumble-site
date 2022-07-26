@@ -1,11 +1,5 @@
 .iframeWrapper {
-    width: 300px;
-    height: 200px;
-    overflow-y: auto;
-    overflow-x: auto;
-    resize: both;
-    position: relative;
-    z-index: 2;
+    @apply min-h-screen;
 }
 
 .iframe {
