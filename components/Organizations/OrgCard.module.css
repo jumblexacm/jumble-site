@@ -1,0 +1,27 @@
+.card {
+    @apply mx-auto my-6 max-w-4xl max-h-36 rounded-lg shadow-md bg-white text-gray-800
+}
+
+.card:hover {
+    @apply bg-gray-100 -translate-y-0.5
+}
+
+.cardInner {
+    @apply  p-4 sm:flex sm:space-x-6
+}
+
+.text {
+    @apply flex grid grid-cols-1 items-center
+}
+
+.name {
+    @apply flex-col text-2xl font-semibold text-left 
+}
+
+.description {
+    @apply flex-col text-base text-gray-600 truncate
+}
+
+
+
+
