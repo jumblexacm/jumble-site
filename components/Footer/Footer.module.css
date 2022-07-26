@@ -1,0 +1,27 @@
+.footerWrapper {
+    @apply px-4 py-8 bg-gray-100 text-gray-600
+}
+
+.footer {
+    @apply container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0
+}
+
+.linkWrapper {
+    @apply flex flex-row pr-3 space-x-4 sm:space-x-8
+}
+
+.link {
+    @apply flex items-center px-2 ml-2
+}
+
+.imageWrapper {
+    @apply relative w-40 h-12
+}
+
+.leftListWrapper {
+    @apply flex flex-wrap items-center space-x-4 sm:space-x-8
+}
+
+.rightListWrapper {
+    @apply flex flex-wrap pl-3 mr-8 space-x-4 sm:space-x-8
+}
