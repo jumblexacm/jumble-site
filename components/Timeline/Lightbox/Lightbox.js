@@ -10,7 +10,7 @@ function Lightbox({ src, alt, width, height, layout, onClose }) {
           <Image src={src} alt={alt} layout="fill" objectFit="contain"></Image>
         </div>
       </div>
-      <LightboxHeader onClose={onClose} src={src}/>
+      <LightboxHeader onClose={onClose} src={src} />
     </div>
   );
 }

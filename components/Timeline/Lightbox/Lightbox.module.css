@@ -22,14 +22,11 @@
 }
 
 .imageContainer {
-    position: relative;
-    display: grid;
-    width: 100vw;
-    height: 100vh;
-    place-items: center;
+    @apply relative grid w-full h-full m-auto place-items-center;
 }
 
 .imageWrapper {
+    @apply relative h-full w-full;
 }
 
 

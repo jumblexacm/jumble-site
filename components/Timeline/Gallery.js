@@ -18,15 +18,16 @@ function Gallery({ images }) {
   return (
     <section className="bg-gray-100 grid">
       <div className="container flex flex-col justify-center p-4 mx-auto">
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-5 sm:grid-cols-2">
+        <div className="grid flex gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-5">
           {images.slice(0, imagesToShow).map((image, index) => (
             <ImageModal
               key={index}
               src={image}
               alt={''}
-              width={64}
-              height={64}
+              width={'100%'}
+              height={'100%'}
               layout={'responsive'}
+              objectFit={'cover'}
             />
           ))}
         </div>
