@@ -13,9 +13,7 @@ export default function Home({ isConnected, posts }) {
 
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
-        <Timeline posts={posts}></Timeline>
-      </main>
+      <Timeline posts={posts}></Timeline>
     </div>
   );
 }
