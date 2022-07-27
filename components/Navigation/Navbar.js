@@ -3,8 +3,16 @@ import Dropdown from './Dropdown';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../public/jumble-logo-full.png';
+import Sidebar from './Sidebar/Sidebar';
+import { useState } from 'react';
 
 function Navbar() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen((curr) => !curr);
+  };
+
   return (
     <header className="p-4 bg-gray-100 text-gray-800">
       <div className="container flex justify-between h-16 mx-auto">
@@ -37,7 +45,10 @@ function Navbar() {
             <Dropdown />
           </li>
         </ul>
-        <button className="flex justify-end p-4 md:hidden">
+        <button
+          className="flex justify-end p-4 md:hidden"
+          onClick={toggleSidebar}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -53,6 +64,7 @@ function Navbar() {
             ></path>
           </svg>
         </button>
+        {sidebarOpen && <Sidebar toggleSidebar={toggleSidebar}></Sidebar>}
       </div>
     </header>
   );
