@@ -1,0 +1,35 @@
+.overlay {
+    @apply fixed z-50 left-0 top-0 w-full h-full;
+    background-color: rgba(0, 0, 0, 0.8);
+    touch-action: none; 
+    overflow: hidden;
+}
+
+.header {
+    @apply absolute top-0 w-full;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.iconMenu {
+    @apply inline-block float-right;
+}
+
+.iconMenu a {
+    @apply inline-block ml-2.5;
+    cursor: pointer;    
+    padding: 5px 5px 0px 5px;
+}
+
+.imageContainer {
+    position: relative;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    place-items: center;
+}
+
+.imageWrapper {
+}
+
+
