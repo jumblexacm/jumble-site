@@ -1,4 +1,4 @@
-import OrgList from '../../components/OrgList';
+import OrgList from '../../components/Organizations/OrgList';
 import clientPromise from '../../lib/mongodb';
 
 export default function OrganizationsPage({ orgs }) {

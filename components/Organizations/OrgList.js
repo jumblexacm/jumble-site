@@ -13,7 +13,7 @@ const arr = [
 function OrgList({ orgs }) {
   return (
     <ul>
-      {orgs.map((org, index) => (
+      {orgs?.map((org, index) => (
         <li key={index}>
           <OrgCard org={org}></OrgCard>
         </li>
