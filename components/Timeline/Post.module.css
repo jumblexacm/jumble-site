@@ -1,0 +1,11 @@
+.postContainer {
+    @apply container flex flex-col w-full p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800;
+}
+
+.avatarImage {
+    @apply relative h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16;
+}
+
+.avatarImage:hover {
+    @apply contrast-80 brightness-95;
+}

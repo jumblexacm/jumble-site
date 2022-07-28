@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Gallery from './Gallery';
 import Link from 'next/link';
+import styles from './Post.module.css';
 
 function Post({ post }) {
   const text = post.message_text
@@ -8,7 +9,7 @@ function Post({ post }) {
     .map((str, index) => (str ? <p key={index}>{str}</p> : <br key={index} />));
 
   return (
-    <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
+    <div className={styles.postContainer}>
       <div className="flex justify-between p-4">
         <div className="flex space-x-4">
           <Link
@@ -17,14 +18,16 @@ function Post({ post }) {
               query: { id: post.org_id },
             }}
           >
-            <a className="hover:contrast-80 hover:brightness-95">
-              <Image
-                src={post.author_avatar_url}
-                alt={post.message_author}
-                width={64}
-                height={64}
-                className="object-cover rounded-full"
-              />
+            <a>
+              <div className={styles.avatarImage}>
+                <Image
+                  src={post.author_avatar_url}
+                  alt={post.message_author}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-full"
+                />
+              </div>
             </a>
           </Link>
           <div>
