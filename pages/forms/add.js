@@ -1,7 +1,7 @@
 import EmbdedForm from '../../components/Forms/EmbedForm';
 
 function add() {
-  const src = 'https://forms.gle/MyN5j62MNFHMzpfFA';
+  const src = 'https://forms.gle/BuVV5U78af4PVsMM6';
 
   return <EmbdedForm src={src}></EmbdedForm>;
 }
