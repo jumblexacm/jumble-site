@@ -21,9 +21,9 @@ function Navbar() {
           <a
             rel="noopener noreferrer"
             aria-label="Back to homepage"
-            className="flex items-center p-2 ml-2"
+            className={styles.logoLink}
           >
-            <div className="relative w-40 h-12">
+            <div className={styles.logoWrapper}>
               <Image
                 src={logo}
                 alt={'Jumble Logo'}
