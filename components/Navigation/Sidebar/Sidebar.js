@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
-import { AiOutlineClose } from 'react-icons/ai';
+import { HiOutlineX } from 'react-icons/hi';
 import Link from 'next/link';
 
 const menuItems = [
@@ -13,10 +13,7 @@ function Sidebar({ toggleSidebar }) {
   return (
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebarHeader}>
-        <AiOutlineClose
-          className={styles.closeIcon}
-          onClick={toggleSidebar}
-        ></AiOutlineClose>
+        <HiOutlineX className={styles.closeIcon} onClick={toggleSidebar} />
       </div>
 
       <ul className={styles.sidebarMenu}>

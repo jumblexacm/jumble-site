@@ -8,6 +8,7 @@
 
 .closeIcon {
     @apply text-2xl mt-2 mr-2 self-end;  
+    color: rgb(31 41 55);
 }
 
 .sidebarMenu {
