@@ -2,10 +2,30 @@
     @apply container flex flex-col w-full p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800;
 }
 
-.avatarImage {
-    @apply relative h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16;
+.postInfoWrapper {
+    @apply flex space-x-4 p-4   ;
 }
 
-.avatarImage:hover {
+.authorImage {
+    @apply relative h-14 w-14 sm:h-16 sm:w-16;
+}
+
+.authorImage:hover {
     @apply contrast-80 brightness-95;
+}
+
+.authorName {
+    @apply font-semibold text-lg;
+}
+
+.authorName:hover {
+    @apply underline; 
+}
+
+.postDate {
+    @apply text-base text-gray-600 md:mt-1;    
+}
+
+.postText {
+    @apply py-4 px-2 text-base text-gray-600 break-words;
 }
