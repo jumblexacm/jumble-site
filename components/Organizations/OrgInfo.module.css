@@ -14,7 +14,8 @@
 }
 
 .descriptionText {
-    @apply px-36 text-center space-y-4 md:space-y-0 md:space-x-6 md:flex-row text-gray-600;
+    @apply px-36 text-center space-y-4 text-gray-600;
+    @apply md:space-y-0 md:space-x-6 md:flex-row
 }
 
 .readMoreBtn {

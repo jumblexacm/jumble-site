@@ -3,19 +3,23 @@
 }
 
 .contentWrapper {
-    @apply container flex justify-between mx-auto h-8 sm:h-12 md:h-16; 
+    @apply container flex justify-between mx-auto h-8; 
+    @apply sm:h-12;
+    @apply md:h-16;
 }
 
 .logoLink {
-    @apply flex items-center p-1 ml-1 sm:p-2 sm:ml-2;
+    @apply flex items-center p-1 ml-1;
+    @apply sm:p-2 sm:ml-2;
 }
 
 .logoWrapper {
-    @apply flex items-center relative w-40 h-12 sm:w-40 sm:h-12;
+    @apply flex items-center relative w-40 h-12;
 }
 
 .sidebarBtn {
-    @apply text-4xl justify-end p-1 sm:p-2 md:hidden;     
+    @apply text-4xl justify-end p-1 md:hidden;    
+    @apply sm:p-2;
 }
 
 .ul {

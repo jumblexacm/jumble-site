@@ -3,11 +3,14 @@
 }
 
 .postInfoWrapper {
-    @apply flex space-x-4 p-4;
+    @apply flex space-x-4 pb-4;
+    @apply sm:px-2 py-2;
+    @apply md:px-4 py-4;
 }
 
 .authorImage {
-    @apply relative h-14 w-14 sm:h-16 sm:w-16;
+    @apply relative h-14 w-14;
+    @apply sm:h-16 sm:w-16;
 }
 
 .authorImage:hover {

@@ -3,11 +3,13 @@
 }
 
 .contentWrapper {
-    @apply container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0;
+    @apply container flex flex-wrap items-center justify-center mx-auto space-y-4;
+    @apply sm:justify-between sm:space-y-0;
 }
 
 .logoWrapper {
-    @apply flex items-center justify-center mx-36 sm:ml-4 sm:mr-0;
+    @apply flex items-center justify-center mx-36; 
+    @apply sm:ml-4 sm:mr-0;
 }
 
 .imageWrapper {
@@ -15,9 +17,11 @@
 }
 
 .rightListWrapper {
-    @apply flex flex-wrap space-x-4 sm:space-x-8 sm:pr-4;
+    @apply flex flex-wrap space-x-4;
+    @apply sm:space-x-8 sm:pr-4;
 } 
 
 .rightListText {
-    @apply text-center sm:text-right;
+    @apply text-center;
+    @apply sm:text-right; 
 }
