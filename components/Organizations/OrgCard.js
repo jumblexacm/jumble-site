@@ -14,12 +14,12 @@ function OrgCard({ org: { org_id, org_name, org_avatar_url } }) {
       >
         <a>
           <div className={styles.cardInner}>
-            <div className="flex-shrink-0">
+            <div className={styles.imageWrapper}>
               <Image
                 src={org_avatar_url}
                 alt=""
-                height={64}
-                width={64}
+                layout="fill"
+                objectFit="cover"
                 className="rounded-full"
               ></Image>
             </div>
