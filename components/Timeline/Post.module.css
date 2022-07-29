@@ -3,7 +3,7 @@
 }
 
 .postInfoWrapper {
-    @apply flex space-x-4 p-4   ;
+    @apply flex space-x-4 p-4;
 }
 
 .authorImage {
