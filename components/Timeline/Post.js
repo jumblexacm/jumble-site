@@ -3,7 +3,8 @@ import Gallery from './Gallery';
 import Link from 'next/link';
 
 function Post({ post }) {
-  const text = post.message_text
+  const { parser, htmlOutput, toHTML, escapeHTML } = require('discord-markdown'); //Discord Markdown
+  const text = toHTML(post.message_text, escapeHTML) //verifying any of the message that has Discord Markdown utilities to remain present on the website
     .split('\n')
     .map((str, index) => (str ? <p key={index}>{str}</p> : <br key={index} />));
 
