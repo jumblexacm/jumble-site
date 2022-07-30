@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import Gallery from './Gallery';
 import Link from 'next/link';
+import { toHTML } from 'discord-markdown';
+import DOMPurify from 'isomorphic-dompurify';
 
 function Post({ post }) {
-  const { parser, htmlOutput, toHTML, escapeHTML } = require('discord-markdown'); //Discord Markdown
-  const text = toHTML(post.message_text, escapeHTML) //verifying any of the message that has Discord Markdown utilities to remain present on the website
-    .split('\n')
-    .map((str, index) => (str ? <p key={index}>{str}</p> : <br key={index} />));
+  const text = DOMPurify.sanitize(toHTML(post.message_text, { escapeHTML: false })); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling 
 
   return (
     <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
@@ -43,7 +42,7 @@ function Post({ post }) {
           </div>
         </div>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-600">{text}</div>
+      <div className="p-4 space-y-2 text-sm text-gray-600"> <div dangerouslySetInnerHTML={{ __html: text }} /> </div>
       {post.attachment_urls.length != 0 ? (
         <Gallery images={post.attachment_urls} />
       ) : null}
