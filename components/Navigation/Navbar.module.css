@@ -1,9 +1,43 @@
+.header {
+    @apply p-4 bg-gray-100;
+}
+
+.contentWrapper {
+    @apply container flex justify-between mx-auto h-8; 
+    @apply sm:h-12;
+    @apply md:h-16;
+}
+
+.logoLink {
+    @apply flex items-center p-1 ml-1;
+    @apply sm:p-2 sm:ml-2;
+}
+
+.logoWrapper {
+    @apply flex items-center relative w-40 h-12;
+}
+
+.sidebarBtn {
+    @apply text-4xl justify-end p-1 md:hidden;    
+    @apply sm:p-2;
+}
+
+.ul {
+    @apply items-stretch hidden space-x-3 md:flex;
+}
+
+.li {
+    @apply flex;
+}
+
 .a {
     @apply flex items-center px-4 -mb-1 border-b-2 border-transparent;
 }
 
 .a:hover {
-    @apply text-purple-600 border-purple-600
+    @apply text-purple-600 border-purple-600;
 }
+
+
 
 

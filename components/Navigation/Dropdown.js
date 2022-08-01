@@ -1,6 +1,6 @@
 import { forwardRef, Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
+import { HiOutlineChevronDown } from 'react-icons/hi';
 import Link from 'next/link';
 import styles from './Dropdown.module.css';
 
@@ -32,39 +32,35 @@ function MenuItemComponent({ path, text }) {
 
 function Dropdown() {
   return (
-    <div className={styles.menuWrapper1}>
-      <div className={styles.menuWrapper2}>
-        <Menu as="div" className={styles.menu}>
-          <div>
-            <Menu.Button className={styles.menuButton}>
-              Manage Org
-              <ChevronDownIcon
-                className="-mr-1 ml-2 h-5 w-5"
-                aria-hidden="true"
-              />
-            </Menu.Button>
-          </div>
-
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-100"
-            enterFrom="transform opacity-0 scale-95"
-            enterTo="transform opacity-100 scale-100"
-            leave="transition ease-in duration-75"
-            leaveFrom="transform opacity-100 scale-100"
-            leaveTo="transform opacity-0 scale-95"
-          >
-            <Menu.Items className={styles.menuItems}>
-              <div className="py-1">
-                {menuItems.map((item, index) => (
-                  <MenuItemComponent {...item} key={index} />
-                ))}
-              </div>
-            </Menu.Items>
-          </Transition>
-        </Menu>
+    <Menu as="div">
+      <div>
+        <Menu.Button className={styles.menuButton}>
+          Manage Org
+          <HiOutlineChevronDown
+            className={styles.chevronDown}
+            aria-hidden="true"
+          />
+        </Menu.Button>
       </div>
-    </div>
+
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-100"
+        enterFrom="transform opacity-0 scale-95"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-75"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-95"
+      >
+        <Menu.Items className={styles.menuItems}>
+          <div className="py-1">
+            {menuItems.map((item, index) => (
+              <MenuItemComponent {...item} key={index} />
+            ))}
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
   );
 }
 

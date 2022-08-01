@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Gallery from './Gallery';
 import Link from 'next/link';
+import styles from './Post.module.css';
 import { toHTML } from 'discord-markdown';
 import DOMPurify from 'isomorphic-dompurify';
 
@@ -8,41 +9,39 @@ function Post({ post }) {
   const text = DOMPurify.sanitize(toHTML(post.message_text, { escapeHTML: false })); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling 
 
   return (
-    <div className="container flex flex-col w-full  p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800">
-      <div className="flex justify-between p-4">
-        <div className="flex space-x-4">
+    <div className={styles.postContainer}>
+      <div className={styles.postInfoWrapper}>
+        <Link
+          href={{
+            pathname: '/organizations/[id]',
+            query: { id: post.org_id },
+          }}
+        >
+          <a>
+            <div className={styles.authorImage}>
+              <Image
+                src={post.author_avatar_url}
+                alt={post.message_author}
+                layout="fill"
+                objectFit="cover"
+                className="rounded-full"
+              />
+            </div>
+          </a>
+        </Link>
+        <div>
           <Link
             href={{
               pathname: '/organizations/[id]',
               query: { id: post.org_id },
             }}
           >
-            <a className="hover:contrast-80 hover:brightness-95">
-              <Image
-                src={post.author_avatar_url}
-                alt={post.message_author}
-                width={64}
-                height={64}
-                className="object-cover rounded-full"
-              />
-            </a>
+            <a className={styles.authorName}>{post.message_author}</a>
           </Link>
-          <div>
-            <Link
-              href={{
-                pathname: '/organizations/[id]',
-                query: { id: post.org_id },
-              }}
-            >
-              <a className="text-lg font-semibold hover:underline">
-                {post.message_author}
-              </a>
-            </Link>
-            <div className="mt-2 text-lg text-gray-600">{post.date}</div>
-          </div>
+          <div className={styles.postDate}>{post.date}</div>
         </div>
       </div>
-      <div className="p-4 space-y-2 text-sm text-gray-600"> <div dangerouslySetInnerHTML={{ __html: text }} /> </div>
+      <div className={styles.postText}><div dangerouslySetInnerHTML={{ __html: text }} /></div>
       {post.attachment_urls.length != 0 ? (
         <Gallery images={post.attachment_urls} />
       ) : null}

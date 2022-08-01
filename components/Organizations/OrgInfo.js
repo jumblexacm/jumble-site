@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import styles from './OrgInfo.module.css';
 
-function OrgInfo({ orgData: { author_avatar_url, message_author } }) {
-  const description = ''; //Will need to update for org description 
+function OrgInfo({
+  orgData: { author_avatar_url, message_author, description = '' },
+}) {
   const minChars = 525;
   const [charsToShow, setcharsToShow] = useState(minChars);
   const [expanded, setExpanded] = useState(false);
@@ -18,28 +20,26 @@ function OrgInfo({ orgData: { author_avatar_url, message_author } }) {
   };
 
   return (
-    <div className="px-3 pt-3 sm:px-6 sm:pt-6 bg-gray-50 text-gray-800">
-      <div className="pb-2 relative text-center">
+    <div className={styles.orgInfoContainer}>
+      <div className={styles.orgImageWrapper}>
         <Image
           src={author_avatar_url}
           alt=""
-          height={128}
-          width={128}
-          className="border rounded-full bg-gray-500 border-gray-300"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-full"
         />
       </div>
-      <h4 className="pb-5 text-center text-2xl font-semibold">
-        {message_author}
-      </h4>
-      <div className="px-36 text-center space-y-4 md:space-y-0 md:space-x-6 md:flex-row">
-        <p className="text-gray-600">
+      <h4 className={styles.orgName}>{message_author}</h4>
+      <div className={styles.descriptionText}>
+        <p>
           {description.slice(0, charsToShow)}
           {description.length > charsToShow ? ' ...' : ''}
         </p>
       </div>
       <div className="divide-y">
-        <div className="flex justify-center align-center py-4">
-          {description.length > charsToShow || expanded ? (
+        {description.length > charsToShow || expanded ? (
+          <div className={styles.readMoreBtn}>
             <button onClick={readMore}>
               {expanded ? (
                 <span className="text-gray-500 hover:text-gray-700">
@@ -51,8 +51,8 @@ function OrgInfo({ orgData: { author_avatar_url, message_author } }) {
                 </span>
               )}
             </button>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
 
         {/* This is a svg link template for socials if thats something we want to add */}
         {/* <div className="flex justify-center py-2 space-x-4 align-center">

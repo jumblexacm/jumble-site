@@ -2,8 +2,9 @@ import styles from './OrgCard.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
-function OrgCard({ org: { org_id, org_name, org_avatar_url } }) {
-  const description = '';
+function OrgCard({
+  org: { org_id, org_name, org_avatar_url, description = '' },
+}) {
   return (
     <div className={styles.card}>
       <Link
@@ -14,12 +15,12 @@ function OrgCard({ org: { org_id, org_name, org_avatar_url } }) {
       >
         <a>
           <div className={styles.cardInner}>
-            <div className="flex-shrink-0">
+            <div className={styles.imageWrapper}>
               <Image
                 src={org_avatar_url}
                 alt=""
-                height={64}
-                width={64}
+                layout="fill"
+                objectFit="cover"
                 className="rounded-full"
               ></Image>
             </div>

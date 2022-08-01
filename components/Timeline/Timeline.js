@@ -1,8 +1,9 @@
 import Post from './Post';
+import styles from './Timeline.module.css';
 
 function Timeline({ posts }) {
   return (
-    <ul className="w-full h-full p-4 lg:px-8 lg:py-6 bg-gray-200 text-gray-800 space-y-3">
+    <ul className={styles.timeline}>
       {posts?.map((post, index) => (
         <li key={index}>
           <Post post={post} />

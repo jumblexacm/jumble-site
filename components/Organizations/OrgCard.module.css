@@ -1,25 +1,36 @@
 .card {
-    @apply mx-auto my-6 max-w-4xl max-h-36 rounded-lg shadow-md bg-white text-gray-800
+    @apply mx-auto my-6 max-w-xs max-h-24 rounded-lg shadow-md bg-white text-gray-800;
+    @apply sm:max-w-lg;
+    @apply md:max-w-2xl max-h-28;
+    @apply lg:max-w-4xl lg:max-h-32;
 }
 
 .card:hover {
-    @apply bg-gray-100 -translate-y-0.5
+    @apply bg-gray-100 -translate-y-0.5;
 }
 
 .cardInner {
-    @apply  p-4 sm:flex sm:space-x-6
+    @apply p-4 flex space-x-6;
+}
+
+.imageWrapper {
+    @apply relative w-12 h-12 flex-shrink-0 ;
+    @apply sm:w-14 sm:h-14;
+    @apply md:w-16 md:h-16;
 }
 
 .text {
-    @apply flex grid grid-cols-1 items-center
+    @apply flex grid grid-cols-1 items-center;
 }
 
 .name {
-    @apply flex-col text-2xl font-semibold text-left 
+    @apply flex-col text-base font-semibold text-left break-words;
+    @apply sm:text-lg;
+    @apply md:text-xl;
 }
 
 .description {
-    @apply flex-col text-base text-gray-600 truncate
+    @apply flex-col text-base text-gray-600 truncate;
 }
 
 
