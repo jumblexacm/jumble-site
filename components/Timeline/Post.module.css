@@ -32,3 +32,11 @@
 .postText {
     @apply py-4 px-2 text-base text-gray-600 break-words;
 }
+
+.htmlText > a:hover {
+    @apply underline; 
+}
+
+.htmlText > a {
+    @apply text-purple-600; 
+}

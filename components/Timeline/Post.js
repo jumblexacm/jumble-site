@@ -6,7 +6,9 @@ import { toHTML } from 'discord-markdown';
 import DOMPurify from 'isomorphic-dompurify';
 
 function Post({ post }) {
-  const text = DOMPurify.sanitize(toHTML(post.message_text, { escapeHTML: false })); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling 
+  const text = DOMPurify.sanitize(
+    toHTML(post.message_text, { escapeHTML: false })
+  ); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling
 
   return (
     <div className={styles.postContainer}>
@@ -41,7 +43,12 @@ function Post({ post }) {
           <div className={styles.postDate}>{post.date}</div>
         </div>
       </div>
-      <div className={styles.postText}><div dangerouslySetInnerHTML={{ __html: text }} /></div>
+      <div className={styles.postText}>
+        <div
+          className={styles.htmlText}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
+      </div>
       {post.attachment_urls.length != 0 ? (
         <Gallery images={post.attachment_urls} />
       ) : null}
