@@ -29,9 +29,8 @@ export async function getServerSideProps(context) {
       // https://stackoverflow.com/a/5128574
       // _id, created by MongoDB and starts with document creation time
       // -1, signifies the sort is formatted descending (newest at top -> oldest)
-      //.limit(10)
+      //.limit(10) //limits amount of queries from MongoDB to only 10 entries
       .toArray();
-
     return {
       props: {
         isConnected: true,
