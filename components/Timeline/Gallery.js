@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ImageModal from './ImageModal';
+import styles from './Gallery.module.css';
 
 function Gallery({ images }) {
   const [imagesToShow, setImagesToShow] = useState(5);
@@ -16,9 +17,9 @@ function Gallery({ images }) {
   };
 
   return (
-    <section className="bg-gray-100 grid">
-      <div className="container flex flex-col justify-center p-4 mx-auto">
-        <div className="grid flex gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-5">
+    <div className={styles.galleryContainer}>
+      <div className={styles.imageContainer}>
+        <div className={styles.imageWrapper}>
           {images.slice(0, imagesToShow).map((image, index) => (
             <ImageModal
               key={index}
@@ -35,13 +36,13 @@ function Gallery({ images }) {
       {images.length > imagesToShow || expanded ? (
         <button
           type="button"
-          className="pb-1 flex justify-center bg-gray-200 hover:bg-gray-300"
+          className={styles.showMoreBtn}
           onClick={toggleExpand}
         >
           {expanded ? <span>Show less</span> : <span>Show more</span>}
         </button>
       ) : null}
-    </section>
+    </div>
   );
 }
 
