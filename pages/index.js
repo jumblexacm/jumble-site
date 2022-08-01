@@ -9,9 +9,6 @@ export default function Home({ isConnected, posts }) {
       ? 'You are connected to MongoDB'
       : 'You are NOT connected to MongoDB';
     console.log(connection);
-    const { parser, htmlOutput, toHTML, escapeHTML } = require('discord-markdown'); //Discord Markdown
-    console.log(toHTML('This **is** a __test__', escapeHTML)); //Discord Markdown
-
   });
 
   return (
