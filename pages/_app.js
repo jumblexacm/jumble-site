@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Jumble</title>
-        <link rel="icon" href="/jumble-logo.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Script
         strategy="lazyOnload"
