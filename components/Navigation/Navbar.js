@@ -35,17 +35,15 @@ function Navbar() {
         </Link>
 
         <ul className={styles.ul}>
-          <li className={styles.li}>
+          <li>
             <Link href="/organizations">
-              <a rel="noopener noreferrer" className={styles.a}>
-                Org List
-              </a>
+              <a rel="noopener noreferrer">Org List</a>
             </Link>
           </li>
-          <li className={styles.li}>
-            <div className={styles.a}>
+          <li>
+            <a>
               <Dropdown />
-            </div>
+            </a>
           </li>
         </ul>
         <HiOutlineMenu className={styles.sidebarBtn} onClick={toggleSidebar} />

@@ -26,15 +26,15 @@
     @apply items-stretch hidden space-x-3 md:flex;
 }
 
-.li {
+.ul > li {
     @apply flex;
 }
 
-.a {
+.ul a {
     @apply flex items-center px-4 -mb-1 border-b-2 border-transparent;
 }
 
-.a:hover {
+.ul a:hover {
     @apply text-purple-600 border-purple-600;
 }
 
