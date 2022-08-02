@@ -6,6 +6,7 @@ import logo from '../../public/jumble-logo-full.png';
 import Sidebar from './Sidebar/Sidebar';
 import { useState } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
+import CustomSearchBox from '../Search/CustomSearchBox';
 
 function Navbar() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -35,15 +36,16 @@ function Navbar() {
         </Link>
 
         <ul className={styles.ul}>
+          {/* <li>
+            <CustomSearchBox></CustomSearchBox>
+          </li> */}
           <li>
             <Link href="/organizations">
               <a rel="noopener noreferrer">Org List</a>
             </Link>
           </li>
           <li>
-            <a>
-              <Dropdown />
-            </a>
+            <Dropdown />
           </li>
         </ul>
         <HiOutlineMenu className={styles.sidebarBtn} onClick={toggleSidebar} />

@@ -27,16 +27,13 @@
 }
 
 .ul > li {
-    @apply flex;
-}
-
-.ul a {
     @apply flex items-center px-4 -mb-1 border-b-2 border-transparent;
 }
 
-.ul a:hover {
+.ul > li:hover {
     @apply text-purple-600 border-purple-600;
 }
+
 
 
 
