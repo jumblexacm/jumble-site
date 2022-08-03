@@ -7,10 +7,12 @@ const searchClient = algoliasearch(
   'fe84fe5263165f376960e3d44a532d30'
 );
 
+const INDEX_NAME = 'posts';
+
 function CustomSearchBox() {
   return (
-    <InstantSearch searchClient={searchClient} indexName="instant_search">
-      <SearchBox></SearchBox>
+    <InstantSearch searchClient={searchClient} indexName={INDEX_NAME}>
+      <SearchBox placeholder="Search"></SearchBox>
     </InstantSearch>
   );
 }

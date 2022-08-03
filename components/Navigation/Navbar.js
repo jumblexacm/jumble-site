@@ -35,10 +35,11 @@ function Navbar() {
           </a>
         </Link>
 
+        <div className={styles.searchBoxWrapper}>
+          <CustomSearchBox></CustomSearchBox>
+        </div>
+
         <ul className={styles.ul}>
-          {/* <li>
-            <CustomSearchBox></CustomSearchBox>
-          </li> */}
           <li>
             <Link href="/organizations">
               <a rel="noopener noreferrer">Org List</a>
