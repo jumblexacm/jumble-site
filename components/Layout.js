@@ -6,7 +6,12 @@ function Layout({ children }) {
   return (
     <main>
       <Navbar />
-      <div style={{ minHeight: 'calc(100vh - 192px)' }}>{children}</div>
+      <div
+        // Makes sure the footer is always at the bottom of the screen
+        style={{ minHeight: 'calc(100vh - 192px)', backgroundColor: '#e5e7eb' }}
+      >
+        {children}
+      </div>
       <Footer />
     </main>
   );

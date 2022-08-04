@@ -10,7 +10,7 @@ function CustomSearchBox() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(); 
     router.push({
       pathname: '/search',
       query: { query: searchQuery },
