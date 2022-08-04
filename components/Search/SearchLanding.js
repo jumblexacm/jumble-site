@@ -39,7 +39,7 @@ function SearchLanding() {
   return (
     <div>
       <InstantSearch searchClient={searchClient} indexName={INDEX_NAME}>
-        <Configure query={query} hitsPerPage={1} />
+        <Configure query={query} hitsPerPage={5} />
         <div className={styles.hitsContainer}>
           <Hits hitComponent={Hit} />
         </div>
