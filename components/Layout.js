@@ -1,18 +1,32 @@
 import Navbar from './Navigation/Navbar';
 import Footer from './Footer/Footer';
-import { calculateObjectSize } from 'bson';
+import { useRef, useState, useEffect } from 'react';
 
 function Layout({ children }) {
+  const navbarRef = useRef(null);
+  const footerRef = useRef(null);
+
+  const [minHeight, setMinHeight] = useState();
+
+  useEffect(() => {
+    setMinHeight(
+      navbarRef.current.clientHeight + footerRef.current.clientHeight
+    );
+  }, [minHeight]);
+
   return (
     <main>
-      <Navbar />
+      <Navbar ref={navbarRef} />
       <div
         // Makes sure the footer is always at the bottom of the screen
-        style={{ minHeight: 'calc(100vh - 192px)', backgroundColor: '#e5e7eb' }}
+        style={{
+          minHeight: `calc(100vh - ${minHeight})`,
+          backgroundColor: '#e5e7eb',
+        }}
       >
         {children}
       </div>
-      <Footer />
+      <Footer ref={footerRef} />
     </main>
   );
 }

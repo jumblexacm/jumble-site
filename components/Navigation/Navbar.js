@@ -4,11 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../public/jumble-logo-full.png';
 import Sidebar from './Sidebar/Sidebar';
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
 import CustomSearchBox from '../Search/CustomSearchBox';
 
-function Navbar() {
+function Navbar(props, ref) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -16,7 +16,7 @@ function Navbar() {
   };
 
   return (
-    <header className={styles.header}>
+    <header ref={ref} className={styles.header}>
       <div className={styles.contentWrapper}>
         <Link href="/">
           <a
@@ -56,4 +56,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default forwardRef(Navbar);
