@@ -4,15 +4,8 @@ import styles from './CustomPagination.module.css';
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 
 function CustomPagination(props) {
-  const {
-    pages,
-    currentRefinement,
-    nbHits,
-    nbPages,
-    isFirstPage,
-    isLastPage,
-    refine,
-  } = usePagination(props);
+  const { pages, currentRefinement, isFirstPage, isLastPage, refine } =
+    usePagination(props);
 
   return (
     <div className={styles.paginationContainer}>
