@@ -38,6 +38,12 @@
     @apply flex items-center;
 }
 
+.searchBox {
+    @apply relative hidden;
+    @apply md:block md:w-64; 
+    @apply lg:w-96; 
+}
+
 
 
 

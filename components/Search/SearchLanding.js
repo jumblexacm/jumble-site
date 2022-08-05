@@ -1,25 +1,24 @@
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Post from '../Timeline/Post';
 import CustomPagination from './CustomPagination';
 import styles from './SearchLanding.module.css';
 import algoliasearch from 'algoliasearch/lite';
-import {
-  InstantSearch,
-  Configure,
-  Hits,
-  Pagination,
-} from 'react-instantsearch-hooks-web';
+import { InstantSearch, Configure, Hits } from 'react-instantsearch-hooks-web';
 
-let ALGOLIA_ID = 'BT20OVWWLQ';
-let ALGOLIA_SEARCH_KEY = 'fe84fe5263165f376960e3d44a532d30';
+const ALGOLIA_ID = 'BT20OVWWLQ';
+const ALGOLIA_SEARCH_KEY = 'fe84fe5263165f376960e3d44a532d30';
 
 const searchClient = algoliasearch(ALGOLIA_ID, ALGOLIA_SEARCH_KEY);
+
+// DOES NOT WORK WITH PROCESS.ENV.
+// const searchClient = algoliasearch(
+//   process.env.ALGOLIA_ID,
+//   process.env.ALGOLIA_SEARCH_KEY
+// );
 
 const INDEX_NAME = 'posts';
 
 const Hit = ({ hit }) => {
-  console.log(JSON.stringify(hit, null, 4));
   return (
     <div className={styles.postContainer}>
       <Post post={hit} />
@@ -30,11 +29,6 @@ const Hit = ({ hit }) => {
 function SearchLanding() {
   const router = useRouter();
   const query = router.query.query;
-
-  // React StrictMode will render components twice in development, but not production
-  //   useEffect(() => {
-  //     console.log(query);
-  //   });
 
   return (
     <div>

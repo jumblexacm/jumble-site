@@ -36,7 +36,9 @@ function Navbar(props, ref) {
         </Link>
 
         <div className={styles.searchBoxWrapper}>
-          <CustomSearchBox></CustomSearchBox>
+          <div className={styles.searchBox}>
+            <CustomSearchBox />
+          </div>
         </div>
 
         <ul className={styles.ul}>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import styles from './CustomSearchBox.module.css';
 
 function CustomSearchBox() {
   const [searchQuery, setSearchQuery] = useState();
@@ -10,7 +11,7 @@ function CustomSearchBox() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     router.push({
       pathname: '/search',
       query: { query: searchQuery },
@@ -18,13 +19,9 @@ function CustomSearchBox() {
   };
 
   return (
-    <div className="relative">
-      <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-        <button
-          type="submit"
-          title="Search"
-          className="p-1 focus:outline-none focus:ring"
-        >
+    <div>
+      <span className={styles.submitBtnWrapper}>
+        <button type="submit" title="Search" className={styles.submitBtn}>
           <svg
             fill="currentColor"
             viewBox="0 0 512 512"
@@ -40,7 +37,7 @@ function CustomSearchBox() {
           name="Search"
           placeholder="Search..."
           onChange={handleChange}
-          className="w-32 py-2 pl-10 text-sm rounded-md sm:w-auto focus:outline-none bg-gray-100 text-gray-800 focus:bg-gray-50"
+          className={styles.searchInput}
         />
       </form>
     </div>
