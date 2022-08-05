@@ -20,10 +20,10 @@ function Layout({ children }) {
   }, [dynamicHeight]);
 
   return (
-    // This bg-color is a temporary fix to hide the gap between OrgList and Footer
-    <div className="bg-gray-200">
+    <div>
       <Navbar ref={navbarRef} />
       <div
+        className="flex flex-col"
         style={{
           minHeight: dynamicHeight,
           backgroundColor: '#f9fafb', //// #f9fafb == bg-gray-50

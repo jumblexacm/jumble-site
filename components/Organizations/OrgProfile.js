@@ -8,8 +8,7 @@ function OrgProfile({ posts }) {
   };
 
   return (
-    // This bg-color is a temporary fix to hide the gap between the two components below
-    <div className="bg-gray-50">
+    <div>
       <OrgInfo orgData={orgData} />
       <Timeline posts={posts} />
     </div>
