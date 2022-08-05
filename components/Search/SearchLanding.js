@@ -31,7 +31,7 @@ function SearchLanding() {
   const query = router.query.query;
 
   return (
-    <div>
+    <div className='grow bg-gray-200'>
       <InstantSearch searchClient={searchClient} indexName={INDEX_NAME}>
         <Configure query={query} hitsPerPage={5} />
         <div className={styles.hitsContainer}>
