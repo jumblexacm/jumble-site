@@ -21,7 +21,12 @@ function CustomSearchBox() {
   return (
     <div>
       <span className={styles.submitBtnWrapper}>
-        <button type="submit" title="Search" className={styles.submitBtn}>
+        <button
+          type="submit"
+          title="Search"
+          className={styles.submitBtn}
+          onClick={handleSubmit}
+        >
           <svg
             fill="currentColor"
             viewBox="0 0 512 512"
