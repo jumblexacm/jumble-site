@@ -1,12 +1,7 @@
-/* .searchBoxContainer {
-    @apply relative hidden;
-    @apply md:block md:w-64; 
-    @apply lg:w-96; 
-} */
-
 .submitBtnWrapper {
-    @apply absolute inset-y-6 left-5; 
-    @apply sm:absolute sm:inset-y-0 sm:left-0 sm:flex sm:items-center sm:pl-2; 
+    @apply absolute top-6 left-5; 
+    @apply sm:left-2.5 sm:flex sm:items-center sm:pl-2;
+    @apply md:left-0 md:top-2 
 }
 
 .submitBtn {

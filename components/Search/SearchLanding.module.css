@@ -1,7 +1,9 @@
 .postContainer {
-    @apply w-full h-full px-8 py-1.5 bg-gray-200;
+    @apply w-full h-full px-4 py-1.5 bg-gray-200;
+    @apply md:px-8
 }
 
 .hitsContainer {
-    @apply py-5 bg-gray-200 h-full;
+    @apply py-2.5 bg-gray-200 h-full;
+    @apply md:py-4; 
 }
