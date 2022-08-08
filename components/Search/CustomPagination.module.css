@@ -1,5 +1,5 @@
 .paginationContainer {
-    @apply flex justify-center space-x-1 text-gray-800 bg-gray-200 pb-6; 
+    @apply flex justify-center space-x-1 text-gray-800 bg-gray-200 py-6; 
 }
 
 .paginationContainer > ul {
