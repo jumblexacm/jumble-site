@@ -22,7 +22,7 @@ function NoResults() {
 
   return (
     <div className="flex grow justify-center items-center">
-      <p className="text-center">
+      <p className="text-center text-lg">
         Sorry! No results found for {`"${indexUiState.configure.query}"`}.
       </p>
     </div>
