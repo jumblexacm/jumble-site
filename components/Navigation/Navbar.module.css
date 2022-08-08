@@ -26,17 +26,24 @@
     @apply items-stretch hidden space-x-3 md:flex;
 }
 
-.li {
-    @apply flex;
-}
-
-.a {
+.ul > li {
     @apply flex items-center px-4 -mb-1 border-b-2 border-transparent;
 }
 
-.a:hover {
+.ul > li:hover {
     @apply text-purple-600 border-purple-600;
 }
+
+.searchBoxWrapper {
+    @apply flex items-center;
+}
+
+.searchBox {
+    @apply relative hidden;
+    @apply md:block md:w-64; 
+    @apply lg:w-96; 
+}
+
 
 
 

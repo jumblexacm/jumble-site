@@ -7,13 +7,11 @@ function OrgProfile({ posts }) {
     message_author: posts[0].message_author,
   };
 
-  //console.log(orgData);
-
   return (
-    <main className="divide-y">
+    <div>
       <OrgInfo orgData={orgData} />
       <Timeline posts={posts} />
-    </main>
+    </div>
   );
 }
 

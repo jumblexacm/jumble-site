@@ -19,6 +19,10 @@
 }
 
 .menuItem:hover {
-    @apply text-purple-600 border-purple-600
+    @apply text-purple-600 border-purple-600;
+}
+
+.searchBox {
+    @apply relative w-40 pt-4 pb-2 px-3;
 }
 

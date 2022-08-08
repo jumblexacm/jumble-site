@@ -1,0 +1,32 @@
+.paginationContainer {
+    @apply flex justify-center space-x-1 text-gray-800 bg-gray-200 py-6; 
+}
+
+.paginationContainer > ul {
+    @apply space-x-1; 
+}
+
+.pageList {
+    @apply flex;
+}
+
+.page {
+    @apply inline-flex items-center justify-center w-8 h-8 text-sm font-semibold border rounded shadow-md bg-gray-50;
+}
+
+.page:hover{
+    @apply text-purple-600 border-purple-600;
+}
+
+.currentPage {
+    @apply inline-flex items-center justify-center w-8 h-8 text-sm font-semibold border rounded shadow-md bg-gray-50;
+    @apply text-purple-600 border-purple-600;
+}
+
+.pageLink {
+    @apply block w-full h-full text-center leading-loose;
+}
+
+.pageChevron {
+    @apply inline mb-0.5;
+}

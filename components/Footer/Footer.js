@@ -2,10 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../public/jumble-logo-full.png';
 import styles from './Footer.module.css';
+import { forwardRef } from 'react';
 
-function Footer() {
+function Footer(props, ref) {
   return (
-    <footer className={styles.footer}>
+    <footer ref={ref} className={styles.footer}>
       <div className={styles.contentWrapper}>
         <div className={styles.logoWrapper}>
           <Link href="/">
@@ -41,4 +42,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default forwardRef(Footer);
