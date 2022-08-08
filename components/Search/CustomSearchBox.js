@@ -12,10 +12,16 @@ function CustomSearchBox() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    router.push({
-      pathname: '/search',
-      query: { query: searchQuery },
-    });
+
+    // Checks if string is falsy or only contains whitespaces 
+    if (!searchQuery || /^\s*$/.test(searchQuery)) {
+      return;
+    } else {
+      router.push({
+        pathname: '/search',
+        query: { query: searchQuery },
+      });
+    }
   };
 
   return (
