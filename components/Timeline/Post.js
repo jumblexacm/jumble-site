@@ -11,47 +11,58 @@ function Post({ post }) {
   ); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling
 
   return (
-    <div className={styles.postContainer}>
-      <div className={styles.postInfoWrapper}>
-        <Link
-          href={{
-            pathname: '/organizations/[id]',
-            query: { id: post.org_id },
-          }}
-        >
-          <a>
-            <div className={styles.authorImage}>
-              <Image
-                src={post.author_avatar_url}
-                alt={post.message_author}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
+    <div>
+      <Link
+        href={{
+          pathname: 'post/[id]',
+          query: { id: '123456789023452' },
+        }}
+      >
+        <a>
+          <div className={styles.postContainer}>
+            <div className={styles.postInfoWrapper}>
+              <Link
+                href={{
+                  pathname: '/organizations/[id]',
+                  query: { id: post.org_id },
+                }}
+              >
+                <a>
+                  <div className={styles.authorImage}>
+                    <Image
+                      src={post.author_avatar_url}
+                      alt={post.message_author}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-full"
+                    />
+                  </div>
+                </a>
+              </Link>
+              <div>
+                <Link
+                  href={{
+                    pathname: '/organizations/[id]',
+                    query: { id: post.org_id },
+                  }}
+                >
+                  <a className={styles.authorName}>{post.message_author}</a>
+                </Link>
+                <div className={styles.postDate}>{post.date}</div>
+              </div>
+            </div>
+            <div className={styles.postText}>
+              <div
+                className={styles.htmlText}
+                dangerouslySetInnerHTML={{ __html: text }}
               />
             </div>
-          </a>
-        </Link>
-        <div>
-          <Link
-            href={{
-              pathname: '/organizations/[id]',
-              query: { id: post.org_id },
-            }}
-          >
-            <a className={styles.authorName}>{post.message_author}</a>
-          </Link>
-          <div className={styles.postDate}>{post.date}</div>
-        </div>
-      </div>
-      <div className={styles.postText}>
-        <div
-          className={styles.htmlText}
-          dangerouslySetInnerHTML={{ __html: text }}
-        />
-      </div>
-      {post.attachment_urls.length != 0 ? (
-        <Gallery images={post.attachment_urls} />
-      ) : null}
+            {post.attachment_urls.length != 0 ? (
+              <Gallery images={post.attachment_urls} />
+            ) : null}
+          </div>
+        </a>
+      </Link>
     </div>
   );
 }
