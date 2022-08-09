@@ -2,7 +2,11 @@ import clientPromise from '../../lib/mongodb';
 import Post from '../../components/Timeline/Post';
 
 export default function PostPage({ post }) {
-  return <div>PostPage</div>;
+  return (
+    <div>
+      <Post post={post} shareable={true}></Post>
+    </div>
+  );
 }
 
 export async function getServerSideProps({ params }) {
@@ -12,7 +16,6 @@ export async function getServerSideProps({ params }) {
     .find({ message_id: params.id })
     .next();
 
-  console.log(post);
   return {
     props: {
       post: JSON.parse(JSON.stringify(post)),

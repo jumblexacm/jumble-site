@@ -5,7 +5,7 @@ import styles from './Post.module.css';
 import { toHTML } from 'discord-markdown';
 import DOMPurify from 'isomorphic-dompurify';
 
-function Post({ post }) {
+function Post({ post, clickable = false, shareable = false }) {
   const text = DOMPurify.sanitize(
     toHTML(post.message_text, { escapeHTML: false })
   ); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling
@@ -15,10 +15,10 @@ function Post({ post }) {
       <Link
         href={{
           pathname: 'post/[id]',
-          query: { id: '123456789023452' },
+          query: { id: post.message_id },
         }}
       >
-        <a>
+        <a className={clickable ? null : styles.inactiveLink}>
           <div className={styles.postContainer}>
             <div className={styles.postInfoWrapper}>
               <Link
