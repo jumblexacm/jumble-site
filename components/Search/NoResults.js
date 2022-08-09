@@ -4,8 +4,9 @@ import { useInstantSearch } from 'react-instantsearch-hooks-web';
 function NoResultsBoundary({ children, fallback }) {
   const { results } = useInstantSearch();
 
-  // The `__isArtificial` flag prevents the NoResults component from showing until hits are returned
-  if (!results.__isArtificial && results.nbHits === 0) {
+  // The `__isArtificial` flag prevents the NoResults component from showing until hits are returned.
+  // Using !results.__isArtificial causes inconsistent 'TypeError: Cannot read properties of null' so its removed for now.
+  if (results.nbHits === 0) {
     return (
       <>
         {fallback}
