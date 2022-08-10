@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from './OrgInfo.module.css';
-import { HiOutlineClipboardCopy } from 'react-icons/hi';
+import { HiOutlineShare, HiShare } from 'react-icons/hi';
 
 function OrgInfo({
   orgData: { author_avatar_url, message_author, description = '' },
@@ -25,6 +25,8 @@ function OrgInfo({
   const copyToClip = () => {
     navigator.clipboard.writeText(location.href);
     setCopiedToClip(true);
+
+    setTimeout(() => setCopiedToClip(false), 1500);
   };
 
   return (
@@ -40,12 +42,12 @@ function OrgInfo({
           />
         </div>
         {copiedToClip ? (
-          <p>Copied!</p>
+          <div className={styles.check}>
+            <p className={styles.checkText}>COPIED TO CLIPBOARD!</p>
+            <HiShare className={styles.checkIcon} />
+          </div>
         ) : (
-          <HiOutlineClipboardCopy
-            className={styles.copy}
-            onClick={copyToClip}
-          />
+          <HiOutlineShare className={styles.copyIcon} onClick={copyToClip} />
         )}
       </div>
       <h4 className={styles.orgName}>{message_author}</h4>

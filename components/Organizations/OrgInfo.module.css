@@ -22,11 +22,22 @@
     @apply flex justify-center content-center py-4;
 }
 
-.copy {
-    @apply absolute text-2xl cursor-pointer;
-    left: 96%; 
+.copyIcon {
+    @apply absolute text-2xl cursor-pointer right-8;
 }
 
-.copy:hover {
+.copyIcon:hover {
     @apply text-purple-600;
+}
+
+.check {
+    @apply absolute flex right-8;
+}
+
+.checkIcon {
+    @apply text-2xl text-purple-600;
+}
+
+.checkText {
+    @apply text-xs font-medium tracking-wider text-purple-600 mt-1 mr-1;
 }
