@@ -39,5 +39,6 @@
 }
 
 .checkText {
-    @apply text-xs font-medium tracking-wider text-purple-600 mt-1 mr-1;
+    @apply hidden text-xs font-medium tracking-wider text-purple-600 mt-1 mr-1;
+    @apply sm:inline-flex
 }
