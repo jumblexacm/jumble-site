@@ -11,16 +11,16 @@ function Post({ post, clickable = false, shareable = false }) {
   ); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling
 
   return (
-    <div>
+    <div className={styles.postContainer}>
       <Link
         href={{
           pathname: '/post/[id]',
           query: { id: post.message_id },
         }}
       >
-        <a className={clickable ? null : styles.inactiveLink}>CLICK</a>
+        <a className={clickable ? styles.postLink : styles.inactiveLink}></a>
       </Link>
-      <div className={styles.postContainer}>
+      <div className={styles.contentDivide}>
         <div className={styles.postInfoWrapper}>
           <Link
             href={{
@@ -52,15 +52,18 @@ function Post({ post, clickable = false, shareable = false }) {
             <div className={styles.postDate}>{post.date}</div>
           </div>
         </div>
+
         <div className={styles.postText}>
           <div
             className={styles.htmlText}
             dangerouslySetInnerHTML={{ __html: text }}
           />
         </div>
-        {post.attachment_urls.length != 0 ? (
-          <Gallery images={post.attachment_urls} />
-        ) : null}
+        {post.attachment_urls.length != 0 && (
+          <div className="relative z-10">
+            <Gallery images={post.attachment_urls} />
+          </div>
+        )}
       </div>
     </div>
   );
