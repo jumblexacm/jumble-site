@@ -13,7 +13,7 @@ export async function getServerSideProps({ params }) {
   const db = (await clientPromise).db(process.env.MONGODB_DB);
   const posts = await db
     .collection('Posts')
-    .find({ org_id: params.id }, { projection: { message_id: 0 } })
+    .find({ org_id: params.id })
     .sort({ _id: -1 })
     .limit(10)
     .toArray();
