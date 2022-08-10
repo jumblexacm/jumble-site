@@ -14,7 +14,7 @@ function Post({ post, clickable = false, shareable = false }) {
     <div>
       <Link
         href={{
-          pathname: 'post/[id]',
+          pathname: '/post/[id]',
           query: { id: post.message_id },
         }}
       >
