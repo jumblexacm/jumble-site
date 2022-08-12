@@ -1,8 +1,8 @@
 import OurStory from '../../components/OurStory/OurStory.js';
 
-function OurStoryIndex() {
+function OurStoryPage() {
         return (
             <OurStory></OurStory>
         )
 }
-export default OurStoryIndex;
+export default OurStoryPage;

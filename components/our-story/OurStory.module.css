@@ -1,11 +1,11 @@
-.ourstoryWrapper {
+.ourStoryWrapper {
     @apply mt-10 mb-10 mx-5 align-middle justify-center;
 }
 
-.ourstoryTitle {
+.ourStoryTitle {
     @apply mb-5 text-2xl font-semibold text-center;
 }
 
-.ourstoryContent {
+.ourStoryContent {
     @apply mt-5 text-lg text-center;
 }
