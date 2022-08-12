@@ -1,15 +1,10 @@
 import Timeline from '../Timeline/Timeline';
 import OrgInfo from './OrgInfo';
 
-function OrgProfile({ posts }) {
-  const orgData = {
-    author_avatar_url: posts[0].author_avatar_url,
-    message_author: posts[0].message_author,
-  };
-
+function OrgProfile({ posts, orgInfo }) {
   return (
     <div>
-      <OrgInfo orgData={orgData} />
+      <OrgInfo {...orgInfo} />
       <Timeline posts={posts} />
     </div>
   );

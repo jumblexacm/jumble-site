@@ -1,10 +1,10 @@
 import clientPromise from '../../lib/mongodb';
 import OrgProfile from '../../components/Organizations/OrgProfile';
 
-export default function OrgProfilePage({ posts }) {
+export default function OrgProfilePage({ posts, orgInfo }) {
   return (
     <div>
-      <OrgProfile posts={posts} />
+      <OrgProfile posts={posts} orgInfo={orgInfo}/>
     </div>
   );
 }
@@ -18,9 +18,15 @@ export async function getServerSideProps({ params }) {
     .limit(10)
     .toArray();
 
+  const orgInfo = await db
+    .collection('Orgs')
+    .find({ org_id: params.id })
+    .next();
+
   return {
     props: {
       posts: JSON.parse(JSON.stringify(posts)),
+      orgInfo: JSON.parse(JSON.stringify(orgInfo)),
     },
   };
 }
