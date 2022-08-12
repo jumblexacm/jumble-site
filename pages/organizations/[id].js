@@ -3,10 +3,19 @@ import Timeline from '../../components/Timeline/Timeline';
 import OrgInfo from '../../components/Organizations/OrgInfo';
 
 export default function OrgProfilePage({ posts, orgInfo }) {
+  console.log(posts);
   return (
-    <div>
+    <div className="flex flex-col grow">
       <OrgInfo {...orgInfo} />
-      <Timeline posts={posts} />
+      {!posts?.length ? (
+        <div className="flex grow bg-gray-200 items-center justify-center">
+          <p className="text-center text-lg">
+            {`Sorry! ${orgInfo.org_name} hasn\'t made any announcements yet.`}
+          </p>
+        </div>
+      ) : (
+        <Timeline posts={posts} />
+      )}
     </div>
   );
 }
