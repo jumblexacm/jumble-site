@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from './OrgInfo.module.css';
-import { HiOutlineShare, HiShare } from 'react-icons/hi';
+import { HiOutlineDocumentDuplicate, HiDocumentDuplicate } from 'react-icons/hi';
 
 function OrgInfo({
   orgData: { author_avatar_url, message_author, description = '' },
@@ -44,10 +44,10 @@ function OrgInfo({
         {copiedToClip ? (
           <div className={styles.check}>
             <p className={styles.checkText}>COPIED TO CLIPBOARD!</p>
-            <HiShare className={styles.checkIcon} />
+            <HiDocumentDuplicate className={styles.checkIcon} />
           </div>
         ) : (
-          <HiOutlineShare className={styles.copyIcon} onClick={copyToClip} />
+          <HiOutlineDocumentDuplicate className={styles.copyIcon} onClick={copyToClip} />
         )}
       </div>
       <h4 className={styles.orgName}>{message_author}</h4>
