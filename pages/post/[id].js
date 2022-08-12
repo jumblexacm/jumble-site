@@ -3,7 +3,7 @@ import Post from '../../components/Timeline/Post';
 
 export default function PostPage({ post }) {
   return (
-    <div>
+    <div className="flex flex-col grow justify-center p-4 bg-gray-200">
       <Post post={post} shareable={true}></Post>
     </div>
   );
