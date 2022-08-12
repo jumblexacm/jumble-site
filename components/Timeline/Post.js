@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './Post.module.css';
 import { toHTML } from 'discord-markdown';
 import DOMPurify from 'isomorphic-dompurify';
+import CopyToClip from '../Share/CopyToClip';
 
 function Post({ post, clickable = false, shareable = false }) {
   const text = DOMPurify.sanitize(
@@ -12,6 +13,7 @@ function Post({ post, clickable = false, shareable = false }) {
 
   return (
     <div className={styles.postContainer}>
+      {shareable ? <CopyToClip /> : null}
       <Link
         href={{
           pathname: '/post/[id]',

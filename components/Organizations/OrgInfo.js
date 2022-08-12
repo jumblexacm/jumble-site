@@ -1,10 +1,14 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from './OrgInfo.module.css';
+<<<<<<< HEAD
 import {
   HiOutlineDocumentDuplicate,
   HiDocumentDuplicate,
 } from 'react-icons/hi';
+=======
+import CopyToClip from '../Share/CopyToClip';
+>>>>>>> 897d7be383ee3c0aa92c1470d559512566ce1f97
 
 function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
   const minChars = 525;
@@ -21,17 +25,9 @@ function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
     }
   };
 
-  const [copiedToClip, setCopiedToClip] = useState(false);
-
-  const copyToClip = () => {
-    navigator.clipboard.writeText(location.href);
-    setCopiedToClip(true);
-
-    setTimeout(() => setCopiedToClip(false), 1500);
-  };
-
   return (
     <div className={styles.orgInfoContainer}>
+<<<<<<< HEAD
       <div className="grid">
         <div className={styles.orgImageWrapper}>
           <Image
@@ -53,6 +49,17 @@ function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
             onClick={copyToClip}
           />
         )}
+=======
+      <CopyToClip />
+      <div className={styles.orgImageWrapper}>
+        <Image
+          src={author_avatar_url}
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          className="rounded-full"
+        />
+>>>>>>> 897d7be383ee3c0aa92c1470d559512566ce1f97
       </div>
       <h4 className={styles.orgName}>{org_name}</h4>
       <div className={styles.org_descriptionText}>

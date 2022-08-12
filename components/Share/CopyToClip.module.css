@@ -1,0 +1,22 @@
+.copyIcon {
+    @apply absolute text-2xl cursor-pointer right-4;
+    @apply sm:right-8;
+}
+
+.copyIcon:hover {
+    @apply text-purple-600;
+}
+
+.copied {
+    @apply absolute flex right-4;
+    @apply sm:right-8;
+}
+
+.copiedIcon {
+    @apply text-2xl text-purple-600;
+}
+
+.copiedText {
+    @apply hidden text-xs font-medium tracking-wider text-purple-600 mt-1 mr-1;
+    @apply sm:inline-flex;
+}
