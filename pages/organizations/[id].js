@@ -3,7 +3,6 @@ import Timeline from '../../components/Timeline/Timeline';
 import OrgInfo from '../../components/Organizations/OrgInfo';
 
 export default function OrgProfilePage({ posts, orgInfo }) {
-  console.log(posts);
   return (
     <div className="flex flex-col grow">
       <OrgInfo {...orgInfo} />
