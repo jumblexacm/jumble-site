@@ -24,7 +24,7 @@ export async function getServerSideProps(context) {
     const db = client.db(process.env.MONGODB_DB);
     const posts = await db
       .collection('Posts')
-      .find({}, { projection: { message_id: 0 } })
+      .find()
       .sort({ _id: -1 })
       // https://stackoverflow.com/a/5128574
       // _id, created by MongoDB and starts with document creation time

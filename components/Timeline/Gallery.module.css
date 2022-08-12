@@ -11,5 +11,5 @@
 }
 
 .showMoreBtn {
-    @apply pb-1 flex justify-center bg-gray-200 hover:bg-gray-300;
+    @apply relative z-10 pb-1 flex justify-center bg-gray-200 hover:bg-gray-300;
 }

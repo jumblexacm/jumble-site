@@ -1,5 +1,5 @@
 .postContainer {
-    @apply container flex flex-col w-full p-6 mx-auto divide-y rounded-md divide-gray-300 bg-gray-50 text-gray-800;
+    @apply container relative flex flex-col p-6 w-full mx-auto rounded-md bg-gray-50;
 }
 
 .postInfoWrapper {
@@ -9,7 +9,7 @@
 }
 
 .authorImage {
-    @apply relative h-14 w-14;
+    @apply relative h-14 w-14 z-10;
     @apply sm:h-16 sm:w-16;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .authorName {
-    @apply font-semibold text-lg;
+    @apply relative font-semibold text-lg z-10;
 }
 
 .authorName:hover {
@@ -38,9 +38,22 @@
 }
 
 .htmlText > a {
-    @apply text-purple-600; 
+    @apply relative text-purple-600 z-10; 
 }
 
 .htmlText > img {
     @apply inline-block w-7 h-7; 
+}
+
+.inactiveLink {
+    pointer-events: none;
+    cursor: default; 
+}
+
+.postLink {
+    @apply absolute w-full h-full top-0 left-0 z-0; 
+}
+
+.contentDivide {
+    @apply divide-y divide-gray-300; 
 }

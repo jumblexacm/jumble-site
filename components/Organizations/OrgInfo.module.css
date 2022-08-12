@@ -15,9 +15,30 @@
 
 .descriptionText {
     @apply px-36 text-center space-y-4 text-gray-600;
-    @apply md:space-y-0 md:space-x-6 md:flex-row
+    @apply md:space-y-0 md:space-x-6 md:flex-row;
 }
 
 .readMoreBtn {
     @apply flex justify-center content-center py-4;
+}
+
+.copyIcon {
+    @apply absolute text-2xl cursor-pointer right-8;
+}
+
+.copyIcon:hover {
+    @apply text-purple-600;
+}
+
+.check {
+    @apply absolute flex right-8;
+}
+
+.checkIcon {
+    @apply text-2xl text-purple-600;
+}
+
+.checkText {
+    @apply hidden text-xs font-medium tracking-wider text-purple-600 mt-1 mr-1;
+    @apply sm:inline-flex
 }

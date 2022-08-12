@@ -6,7 +6,7 @@ function Timeline({ posts }) {
     <ul className={styles.timeline}>
       {posts?.map((post, index) => (
         <li key={index}>
-          <Post post={post} />
+          <Post post={post} clickable={true} />
         </li>
       ))}
     </ul>
