@@ -1,0 +1,26 @@
+.submitBtnWrapper {
+    @apply absolute top-6 left-5; 
+    @apply sm:left-2.5 sm:flex sm:items-center sm:pl-2;
+    @apply md:left-0 md:top-2 
+}
+
+.submitBtn {
+    @apply p-1 focus:outline-none focus:ring;
+}
+
+.searchInput {
+    @apply w-full py-2 pl-10 text-sm rounded bg-white text-gray-900 border-gray-300; 
+    @apply focus:border-purple-600 focus:shadow-inner focus:outline-none;
+    border-width: 1px;
+}
+
+.searchInput::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgb(107 114 128)' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 18L18 6M6 6l12 12' /%3E%3C/svg%3E");
+}

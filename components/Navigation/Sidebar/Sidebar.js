@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Sidebar.module.css';
 import { HiOutlineX } from 'react-icons/hi';
 import Link from 'next/link';
+import CustomSearchBox from '../../Search/CustomSearchBox';
 
 const menuItems = [
   { text: 'Org List', path: '/organizations' },
@@ -14,6 +15,9 @@ function Sidebar({ toggleSidebar }) {
     <div className={styles.sidebarContainer}>
       <div className={styles.sidebarHeader}>
         <HiOutlineX className={styles.closeIcon} onClick={toggleSidebar} />
+      </div>
+      <div className={styles.searchBox}>
+        <CustomSearchBox />
       </div>
 
       <ul className={styles.sidebarMenu}>

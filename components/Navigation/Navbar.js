@@ -4,10 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../public/jumble-logo-full.png';
 import Sidebar from './Sidebar/Sidebar';
-import { useState } from 'react';
+import { useState, forwardRef } from 'react';
 import { HiOutlineMenu } from 'react-icons/hi';
+import CustomSearchBox from '../Search/CustomSearchBox';
 
-function Navbar() {
+function Navbar(props, ref) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -15,7 +16,7 @@ function Navbar() {
   };
 
   return (
-    <header className={styles.header}>
+    <header ref={ref} className={styles.header}>
       <div className={styles.contentWrapper}>
         <Link href="/">
           <a
@@ -34,18 +35,20 @@ function Navbar() {
           </a>
         </Link>
 
+        <div className={styles.searchBoxWrapper}>
+          <div className={styles.searchBox}>
+            <CustomSearchBox />
+          </div>
+        </div>
+
         <ul className={styles.ul}>
-          <li className={styles.li}>
+          <li>
             <Link href="/organizations">
-              <a rel="noopener noreferrer" className={styles.a}>
-                Org List
-              </a>
+              <a rel="noopener noreferrer">Org List</a>
             </Link>
           </li>
-          <li className={styles.li}>
-            <div className={styles.a}>
-              <Dropdown />
-            </div>
+          <li>
+            <Dropdown />
           </li>
         </ul>
         <HiOutlineMenu className={styles.sidebarBtn} onClick={toggleSidebar} />
@@ -55,4 +58,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default forwardRef(Navbar);
