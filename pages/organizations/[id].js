@@ -1,10 +1,12 @@
 import clientPromise from '../../lib/mongodb';
-import OrgProfile from '../../components/Organizations/OrgProfile';
+import Timeline from '../../components/Timeline/Timeline';
+import OrgInfo from '../../components/Organizations/OrgInfo';
 
 export default function OrgProfilePage({ posts, orgInfo }) {
   return (
     <div>
-      <OrgProfile posts={posts} orgInfo={orgInfo}/>
+      <OrgInfo {...orgInfo} />
+      <Timeline posts={posts} />
     </div>
   );
 }
