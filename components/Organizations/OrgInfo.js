@@ -3,16 +3,14 @@ import { useState } from 'react';
 import styles from './OrgInfo.module.css';
 import CopyToClip from '../Share/CopyToClip';
 
-function OrgInfo({
-  orgData: { author_avatar_url, message_author, description = '' },
-}) {
+function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
   const minChars = 525;
   const [charsToShow, setcharsToShow] = useState(minChars);
   const [expanded, setExpanded] = useState(false);
 
   const readMore = () => {
     if (charsToShow === minChars) {
-      setcharsToShow(description.length);
+      setcharsToShow(org_description.length);
       setExpanded(true);
     } else {
       setcharsToShow(minChars);
@@ -25,22 +23,22 @@ function OrgInfo({
       <CopyToClip />
       <div className={styles.orgImageWrapper}>
         <Image
-          src={author_avatar_url}
+          src={org_avatar_url}
           alt=""
           layout="fill"
           objectFit="cover"
           className="rounded-full"
         />
       </div>
-      <h4 className={styles.orgName}>{message_author}</h4>
-      <div className={styles.descriptionText}>
+      <h4 className={styles.orgName}>{org_name}</h4>
+      <div className={styles.org_descriptionText}>
         <p>
-          {description.slice(0, charsToShow)}
-          {description.length > charsToShow ? ' ...' : ''}
+          {org_description.slice(0, charsToShow)}
+          {org_description.length > charsToShow ? ' ...' : ''}
         </p>
       </div>
       <div className="divide-y">
-        {description.length > charsToShow || expanded ? (
+        {org_description.length > charsToShow || expanded ? (
           <div className={styles.readMoreBtn}>
             <button onClick={readMore}>
               {expanded ? (
