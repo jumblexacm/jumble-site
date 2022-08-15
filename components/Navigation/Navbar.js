@@ -5,7 +5,7 @@ import Image from 'next/image';
 import logo from '../../public/jumble-logo-full.png';
 import Sidebar from './Sidebar/Sidebar';
 import { useState, forwardRef } from 'react';
-import { HiOutlineMenu } from 'react-icons/hi';
+import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import CustomSearchBox from '../Search/CustomSearchBox';
 
 function Navbar(props, ref) {
@@ -13,6 +13,10 @@ function Navbar(props, ref) {
 
   const toggleSidebar = () => {
     setSidebarOpen((curr) => !curr);
+  };
+
+  const closeSidebar = () => {
+    setSidebarOpen(false);
   };
 
   return (
@@ -51,8 +55,15 @@ function Navbar(props, ref) {
             <Dropdown />
           </li>
         </ul>
-        <HiOutlineMenu className={styles.sidebarBtn} onClick={toggleSidebar} />
-        {sidebarOpen && <Sidebar toggleSidebar={toggleSidebar}></Sidebar>}
+        {sidebarOpen ? (
+          <HiOutlineX className={styles.sidebarBtn} onClick={toggleSidebar} />
+        ) : (
+          <HiOutlineMenu
+            className={styles.sidebarBtn}
+            onClick={toggleSidebar}
+          />
+        )}
+        {sidebarOpen && <Sidebar closeSidebar={closeSidebar}></Sidebar>}
       </div>
     </header>
   );

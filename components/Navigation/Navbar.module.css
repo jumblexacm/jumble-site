@@ -1,5 +1,5 @@
 .header {
-    @apply p-4 bg-gray-100 z-50 fixed w-screen;
+    @apply p-4 bg-gray-100 z-50 fixed w-full;
 }
 
 .contentWrapper {
@@ -19,7 +19,7 @@
 
 .sidebarBtn {
     @apply text-4xl justify-end p-1 md:hidden;    
-    @apply sm:p-2;
+    @apply sm:p-2 sm:text-[2.75rem];
 }
 
 .ul {

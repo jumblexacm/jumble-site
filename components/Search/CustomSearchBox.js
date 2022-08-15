@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './CustomSearchBox.module.css';
 
-function CustomSearchBox() {
+function CustomSearchBox({ closeSidebar }) {
   const [searchQuery, setSearchQuery] = useState();
   const router = useRouter();
 
@@ -12,20 +12,26 @@ function CustomSearchBox() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    // Checks if string is falsy or only contains whitespaces 
+    // Checks if string is falsy or only contains whitespaces
     if (!searchQuery || /^\s*$/.test(searchQuery)) {
       return;
     } else {
-      router.push({
-        pathname: '/search',
-        query: { query: searchQuery },
-      });
+      router
+        .push({
+          pathname: '/search',
+          query: { query: searchQuery },
+        })
+        .then(() => {
+          if (typeof closeSidebar === 'function') {
+            closeSidebar();
+          }
+        })
+        .catch((err) => console.log(err));
     }
   };
 
   return (
-    <div>
+    <div className="flex items-center justify-center w-full">
       <span className={styles.submitBtnWrapper}>
         <button
           type="submit"
@@ -42,7 +48,7 @@ function CustomSearchBox() {
           </svg>
         </button>
       </span>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="grow">
         <input
           type="search"
           name="Search"
