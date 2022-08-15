@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import styles from './OrgInfo.module.css';
-import {
-  HiOutlineDocumentDuplicate,
-  HiDocumentDuplicate,
-} from 'react-icons/hi';
+import CopyToClip from '../Share/CopyToClip';
 
 function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
   const minChars = 525;
@@ -21,38 +18,17 @@ function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
     }
   };
 
-  const [copiedToClip, setCopiedToClip] = useState(false);
-
-  const copyToClip = () => {
-    navigator.clipboard.writeText(location.href);
-    setCopiedToClip(true);
-
-    setTimeout(() => setCopiedToClip(false), 1500);
-  };
-
   return (
     <div className={styles.orgInfoContainer}>
-      <div className="grid">
-        <div className={styles.orgImageWrapper}>
-          <Image
-            src={org_avatar_url}
-            alt=""
-            layout="fill"
-            objectFit="cover"
-            className="rounded-full"
-          />
-        </div>
-        {copiedToClip ? (
-          <div className={styles.check}>
-            <p className={styles.checkText}>COPIED TO CLIPBOARD!</p>
-            <HiDocumentDuplicate className={styles.checkIcon} />
-          </div>
-        ) : (
-          <HiOutlineDocumentDuplicate
-            className={styles.copyIcon}
-            onClick={copyToClip}
-          />
-        )}
+      <CopyToClip />
+      <div className={styles.orgImageWrapper}>
+        <Image
+          src={org_avatar_url}
+          alt=""
+          layout="fill"
+          objectFit="cover"
+          className="rounded-full"
+        />
       </div>
       <h4 className={styles.orgName}>{org_name}</h4>
       <div className={styles.org_descriptionText}>
