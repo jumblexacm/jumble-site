@@ -1,5 +1,5 @@
 .header {
-    @apply p-4 bg-gray-100;
+    @apply p-4 bg-gray-100 z-50 fixed w-screen;
 }
 
 .contentWrapper {
