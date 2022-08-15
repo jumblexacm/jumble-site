@@ -1,5 +1,5 @@
 .sidebarContainer {
-    @apply fixed flex-row right-0 top-0 h-screen bg-gray-50 z-50;
+    @apply fixed flex-row right-0 top-0 h-screen w-screen bg-gray-50 z-50;
 }
 
 .sidebarHeader {
@@ -11,7 +11,7 @@
 }
 
 .sidebarMenu {
-    @apply flex flex-col mt-4 text-right;
+    @apply flex flex-col mt-4;
 }
 
 .menuItem {
@@ -23,6 +23,6 @@
 }
 
 .searchBox {
-    @apply relative w-40 pt-4 pb-2 px-3;
+    @apply relative w-40 pt-4 pb-2 px-3 w-full;
 }
 
