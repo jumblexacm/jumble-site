@@ -32,7 +32,7 @@ function MenuItemComponent({ path, text }) {
 
 function Dropdown() {
   return (
-    <Menu as="div">
+    <Menu as="div" className='relative '>
       <div>
         <Menu.Button className={styles.menuButton}>
           Manage Org

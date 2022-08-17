@@ -7,11 +7,19 @@
 }
 
 .menuItems {
-    @apply origin-top-right absolute right-0 w-56 mt-4 rounded-md shadow-lg bg-white z-50;
+    @apply absolute right-0 w-52 mt-4 rounded-md shadow-lg bg-white z-50;
 }
 
 .item {
     @apply hover:bg-gray-100 text-gray-900 block px-4 py-2 text-sm;
+}
+
+.parentListItem {
+    @apply relative flex items-center px-4 -mb-1 border-b-2 border-transparent;
+}
+
+.parentListItem:hover {
+    @apply text-purple-600 border-purple-600;
 }
 
 
