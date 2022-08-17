@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Sidebar.module.css';
-import { HiOutlineX } from 'react-icons/hi';
 import Link from 'next/link';
 import CustomSearchBox from '../../Search/CustomSearchBox';
 
@@ -10,19 +9,16 @@ const menuItems = [
   { text: 'Edit Organization', path: '/forms/edit' },
 ];
 
-function Sidebar({ toggleSidebar }) {
+function Sidebar({ closeSidebar }) {
   return (
     <div className={styles.sidebarContainer}>
-      <div className={styles.sidebarHeader}>
-        <HiOutlineX className={styles.closeIcon} onClick={toggleSidebar} />
-      </div>
       <div className={styles.searchBox}>
-        <CustomSearchBox />
+        <CustomSearchBox closeSidebar={closeSidebar} />
       </div>
 
       <ul className={styles.sidebarMenu}>
         {menuItems.map((item, index) => (
-          <li key={index} className={styles.menuItem} onClick={toggleSidebar}>
+          <li key={index} className={styles.menuItem} onClick={closeSidebar}>
             <Link href={item.path}>{item.text}</Link>
           </li>
         ))}
