@@ -23,7 +23,7 @@
 }
 
 .ul {
-    @apply items-stretch hidden space-x-3 lg:flex;
+    @apply items-stretch hidden space-x-6 lg:flex;
 }
 
 .listItem {
@@ -35,7 +35,7 @@
 }
 
 .dropdownListItem {
-    @apply flex items-center pl-2 ml-2 -mb-1 border-b-2 border-transparent;
+    @apply flex items-center -mb-1 border-b-2 border-transparent;
 }
 
 .dropdownListItem:hover {
