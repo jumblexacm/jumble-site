@@ -47,6 +47,11 @@ function Navbar(props, ref) {
 
         <ul className={styles.ul}>
           <li className={styles.listItem}>
+            <Link href="/our-story">
+              <a rel="noopener noreferrer">Our Story</a>
+            </Link>
+          </li>
+          <li className={styles.listItem}>
             <Link href="/organizations">
               <a rel="noopener noreferrer">Org List</a>
             </Link>

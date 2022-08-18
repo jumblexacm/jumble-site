@@ -1,6 +1,6 @@
 .submitBtnWrapper {
-    @apply absolute top-8 left-10; 
-    @apply md:left-2 md:top-2;
+    @apply absolute left-10 top-8; 
+    @apply lg:left-2 lg:top-2;
 }
 
 .submitBtn {
