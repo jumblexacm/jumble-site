@@ -7,9 +7,11 @@ import Sidebar from './Sidebar/Sidebar';
 import { useState, forwardRef } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import CustomSearchBox from '../Search/CustomSearchBox';
+import { useUser } from '@auth0/nextjs-auth0';
 
 function Navbar(props, ref) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user, error, isLoading } = useUser();
 
   const toggleSidebar = () => {
     setSidebarOpen((curr) => !curr);
@@ -58,6 +60,14 @@ function Navbar(props, ref) {
           </li>
           <li className={styles.dropdownListItem}>
             <Dropdown />
+          </li>
+          <li className={styles.listItem}>
+            {/*Link is not used here because it is an API route, not client-side transition between pages*/}
+            {user ? (
+              <a href="/api/auth/logout">Logout</a>
+            ) : (
+              <a href="/api/auth/login">Login</a>
+            )}
           </li>
         </ul>
         {sidebarOpen ? (
