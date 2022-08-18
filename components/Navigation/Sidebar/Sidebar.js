@@ -4,10 +4,10 @@ import Link from 'next/link';
 import CustomSearchBox from '../../Search/CustomSearchBox';
 
 const menuItems = [
+  { text: 'Our Story', path: '/our-story' },
   { text: 'Org List', path: '/organizations' },
   { text: 'Add Organization', path: '/forms/add' },
   { text: 'Edit Organization', path: '/forms/edit' },
-  { text: 'Our Story', path: '/our-story' },
 ];
 
 function Sidebar({ closeSidebar }) {
