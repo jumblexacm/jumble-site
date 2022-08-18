@@ -2,13 +2,20 @@ import '../styles/globals.css';
 import Script from 'next/script';
 import Layout from '../components/Layout';
 import Head from 'next/head';
+import { hotjar } from 'react-hotjar';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+      hotjar.initialize(3109667, 6);
+  }, []);
+  
   return (
     <>
       <Head>
         <title>Jumble</title>
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
       <Script
         strategy="lazyOnload"
