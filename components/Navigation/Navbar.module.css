@@ -18,12 +18,12 @@
 }
 
 .sidebarBtn {
-    @apply text-4xl justify-end p-1 md:hidden;    
+    @apply text-4xl justify-end self-center p-1 lg:hidden;    
     @apply sm:p-2 sm:text-[2.75rem];
 }
 
 .ul {
-    @apply items-stretch hidden space-x-3 md:flex;
+    @apply items-stretch hidden space-x-3 lg:flex;
 }
 
 .ul > li {
@@ -40,8 +40,7 @@
 
 .searchBox {
     @apply relative hidden;
-    @apply md:block md:w-64; 
-    @apply lg:w-96; 
+    @apply lg:block lg:w-96; 
 }
 
 
