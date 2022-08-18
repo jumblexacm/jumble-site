@@ -7,6 +7,7 @@ const menuItems = [
   { text: 'Org List', path: '/organizations' },
   { text: 'Add Organization', path: '/forms/add' },
   { text: 'Edit Organization', path: '/forms/edit' },
+  { text: 'Our Story', path: '/our-story' },
 ];
 
 function Sidebar({ closeSidebar }) {
