@@ -4,7 +4,7 @@ import clientPromise from '../../lib/mongodb';
 export default function OrganizationsPage({ orgs }) {
   return (
     <div className="bg-gray-50">
-      <h1 className="text-center font-semibold text-2xl pt-6">
+      <h1 className="text-center font-semibold text-2xl pt-14">
         Organization List
       </h1>
       <OrgList orgs={orgs}></OrgList>

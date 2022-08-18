@@ -26,11 +26,19 @@
     @apply items-stretch hidden space-x-3 lg:flex;
 }
 
-.ul > li {
+.listItem {
     @apply flex items-center px-4 -mb-1 border-b-2 border-transparent;
 }
 
-.ul > li:hover {
+.listItem:hover {
+    @apply text-purple-600 border-purple-600;
+}
+
+.dropdownListItem {
+    @apply flex items-center pl-2 ml-2 -mb-1 border-b-2 border-transparent;
+}
+
+.dropdownListItem:hover {
     @apply text-purple-600 border-purple-600;
 }
 
