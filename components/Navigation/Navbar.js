@@ -46,12 +46,12 @@ function Navbar(props, ref) {
         </div>
 
         <ul className={styles.ul}>
-          <li>
+          <li className={styles.listItem}>
             <Link href="/organizations">
               <a rel="noopener noreferrer">Org List</a>
             </Link>
           </li>
-          <li>
+          <li className={styles.dropdownListItem}>
             <Dropdown />
           </li>
         </ul>

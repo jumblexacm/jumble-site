@@ -18,7 +18,7 @@ function Layout({ children }) {
       }px)`
     );
     setNavbarHeight(navbarRef.current.clientHeight);
-    console.log(dynamicHeight);
+    //console.log(dynamicHeight);
   }, [dynamicHeight]);
 
   return (
