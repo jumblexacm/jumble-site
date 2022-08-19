@@ -7,7 +7,10 @@ import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-      hotjar.initialize(3109667, 6);
+      hotjar.initialize(
+        process.env.NEXT_PUBLIC_HOTJAR_SITE_ID,
+        process.env.NEXT_PUBLIC_HOTJAR_SV
+      );
   }, []);
   
   return (
