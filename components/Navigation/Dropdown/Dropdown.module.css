@@ -1,5 +1,5 @@
 .menuButton {
-    @apply flex items-center px-4 border-b-2 border-transparent;
+    @apply flex items-center px-2 border-b-2 border-transparent;
 }
 
 .chevronDown {

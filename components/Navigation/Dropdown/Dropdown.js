@@ -1,41 +1,20 @@
-import { forwardRef, Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { HiOutlineChevronDown } from 'react-icons/hi';
-import Link from 'next/link';
+import { Fragment } from 'react';
+import MenuItemComponent from './MenuItemComponent';
 import styles from './Dropdown.module.css';
 
-// Change path property to route to correct pages
 const menuItems = [
   { text: 'Add Organization', path: '/forms/add' },
   { text: 'Edit Organization', path: '/forms/edit' },
 ];
 
-const ItemLink = forwardRef((props, ref) => {
-  let { href, children, ...rest } = props;
+function Dropdown({ btnText }) {
   return (
-    <Link href={href}>
-      <a ref={ref} {...rest} className={styles.item}>
-        {children}
-      </a>
-    </Link>
-  );
-});
-ItemLink.displayName = 'ItemLink';
-
-function MenuItemComponent({ path, text }) {
-  return (
-    <Menu.Item>
-      <ItemLink href={path}>{text}</ItemLink>
-    </Menu.Item>
-  );
-}
-
-function Dropdown() {
-  return (
-    <Menu as="div" className='relative '>
+    <Menu as="div" className="relative ">
       <div>
         <Menu.Button className={styles.menuButton}>
-          Manage Org
+          {btnText}
           <HiOutlineChevronDown
             className={styles.chevronDown}
             aria-hidden="true"

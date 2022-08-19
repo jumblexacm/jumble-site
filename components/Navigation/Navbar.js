@@ -1,5 +1,5 @@
 import styles from './Navbar.module.css';
-import Dropdown from './Dropdown';
+import Dropdown from './Dropdown/Dropdown';
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../public/jumble-logo-full.png';
@@ -8,6 +8,7 @@ import { useState, forwardRef } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import CustomSearchBox from '../Search/CustomSearchBox';
 import { useUser } from '@auth0/nextjs-auth0';
+import UserDropdown from './Dropdown/UserDropdown';
 
 function Navbar(props, ref) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -59,13 +60,14 @@ function Navbar(props, ref) {
             </Link>
           </li>
           <li className={styles.dropdownListItem}>
-            <Dropdown />
+            <Dropdown btnText={'Manage Org'} />
           </li>
           <li className={styles.listItem}>
             {/*Link is not used here because it is an API route, not client-side transition between pages*/}
             {user ? (
-              <a href="/api/auth/logout">Logout</a>
+              <UserDropdown userPic={user.picture} userName={user.name} />
             ) : (
+              // <a href="/api/auth/logout">Logout</a>
               <a href="/api/auth/login">Login</a>
             )}
           </li>
