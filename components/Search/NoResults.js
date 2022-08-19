@@ -6,7 +6,7 @@ function NoResultsBoundary({ children, fallback }) {
 
   // The `__isArtificial` flag prevents the NoResults component from showing until hits are returned.
   // Using !results.__isArtificial may cause 'TypeError: Cannot read properties of null'
-  if (!results.__isArtificial && results.nbHits === 0) {
+  if (!results?.__isArtificial && results.nbHits === 0) {
     return (
       <>
         {fallback}
