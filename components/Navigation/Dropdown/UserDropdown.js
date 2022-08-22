@@ -12,7 +12,7 @@ function UserDropdown({ userPic, userName }) {
     <Menu as="div" className="relative">
       <div>
         <Menu.Button className={styles.menuButton}>
-          <div className="relative h-8 w-8">
+          <div className="relative h-7 w-7">
             <Image
               src={userPic}
               alt={userName}
@@ -39,8 +39,9 @@ function UserDropdown({ userPic, userName }) {
               <MenuItemComponent {...item} key={index} />
             ))}
             <Menu.Item>
+              {/* eslint-disable-next-line */}
               <a className={styles.item} href="/api/auth/logout">
-                Logout
+                Sign Out
               </a>
             </Menu.Item>
           </div>

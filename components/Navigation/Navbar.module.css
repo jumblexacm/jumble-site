@@ -8,18 +8,35 @@
     @apply md:h-16;
 }
 
-.logoLink {
-    @apply flex items-center p-1 ml-1;
-    @apply sm:p-2 sm:ml-2;
+.fullLogoLink {
+    @apply flex items-center p-1 ml-1 hidden;
+    @apply lg:block;
 }
 
-.logoWrapper {
-    @apply flex items-center relative w-40 h-12;
+.fullLogoWrapper {
+    @apply flex items-center relative w-40 h-12 hidden;
+    @apply lg:block;
+}
+
+.iconLogoLink {
+    @apply flex items-center;
+    @apply lg:hidden;
+}
+
+.iconLogoWrapper {
+    @apply flex items-center relative w-12 h-8; 
+    @apply lg:hidden;
 }
 
 .sidebarBtn {
-    @apply text-4xl justify-end self-center p-1 lg:hidden;    
+    @apply text-4xl self-center p-1 justify-start;    
     @apply sm:p-2 sm:text-[2.75rem];
+    @apply lg:hidden;
+}
+
+.sidebarUserComponent {
+    @apply flex items-center justify-end;
+    @apply lg:hidden;
 }
 
 .ul {
@@ -27,7 +44,7 @@
 }
 
 .listItem {
-    @apply flex items-center px-4 -mb-1 border-b-2 border-transparent;
+    @apply flex items-center px-4 -mb-1 border-b-2 border-transparent text-center;
 }
 
 .listItem:hover {
@@ -35,7 +52,7 @@
 }
 
 .dropdownListItem {
-    @apply flex items-center -mb-1 border-b-2 border-transparent;
+    @apply flex items-center px-2 -mb-1 border-b-2 border-transparent;
 }
 
 .dropdownListItem:hover {
@@ -43,13 +60,16 @@
 }
 
 .searchBoxWrapper {
-    @apply flex items-center;
+    @apply flex items-center hidden;
+    @apply lg:flex;
 }
 
 .searchBox {
     @apply relative hidden;
     @apply lg:block lg:w-96; 
 }
+
+
 
 
 

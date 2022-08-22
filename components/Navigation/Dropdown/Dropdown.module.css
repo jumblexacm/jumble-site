@@ -1,5 +1,5 @@
 .menuButton {
-    @apply flex items-center px-2 border-b-2 border-transparent;
+    @apply flex items-center border-b-2 border-transparent;
 }
 
 .chevronDown {
@@ -7,7 +7,7 @@
 }
 
 .menuItems {
-    @apply absolute right-0 w-52 mt-4 rounded-md shadow-lg bg-white z-50;
+    @apply absolute right-0 w-52 mt-4 rounded-md shadow-lg bg-white z-50 text-start;
 }
 
 .item {

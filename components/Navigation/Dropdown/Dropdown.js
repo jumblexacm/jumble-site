@@ -4,21 +4,18 @@ import { Fragment } from 'react';
 import MenuItemComponent from './MenuItemComponent';
 import styles from './Dropdown.module.css';
 
-const menuItems = [
-  { text: 'Add Organization', path: '/forms/add' },
-  { text: 'Edit Organization', path: '/forms/edit' },
-];
-
-function Dropdown({ btnText }) {
+function Dropdown({ btnText, menuItems, downChevron = false }) {
   return (
     <Menu as="div" className="relative ">
       <div>
         <Menu.Button className={styles.menuButton}>
           {btnText}
-          <HiOutlineChevronDown
-            className={styles.chevronDown}
-            aria-hidden="true"
-          />
+          {downChevron && (
+            <HiOutlineChevronDown
+              className={styles.chevronDown}
+              aria-hidden="true"
+            />
+          )}
         </Menu.Button>
       </div>
 
@@ -33,7 +30,7 @@ function Dropdown({ btnText }) {
       >
         <Menu.Items className={styles.menuItems}>
           <div className="py-1">
-            {menuItems.map((item, index) => (
+            {menuItems?.map((item, index) => (
               <MenuItemComponent {...item} key={index} />
             ))}
           </div>
