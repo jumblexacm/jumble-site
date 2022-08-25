@@ -53,7 +53,7 @@ function Navbar(props, ref) {
   return (
     <header ref={ref} className={styles.header}>
       <div className={styles.contentWrapper}>
-        {/* Sidebar only appears on md- screen sizes*/}
+        {/* Sidebar only appears on < lg screen sizes*/}
         {sidebarOpen ? (
           <HiOutlineX className={styles.sidebarBtn} onClick={toggleSidebar} />
         ) : (
@@ -64,7 +64,7 @@ function Navbar(props, ref) {
         )}
         {sidebarOpen && <Sidebar closeSidebar={closeSidebar}></Sidebar>}
 
-        {/* Full logo for md+ screen sizes*/}
+        {/* Full logo for >= lg screen sizes*/}
         <Link href="/">
           <a
             rel="noopener noreferrer"
