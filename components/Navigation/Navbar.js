@@ -64,7 +64,7 @@ function Navbar(props, ref) {
         )}
         {sidebarOpen && <Sidebar closeSidebar={closeSidebar}></Sidebar>}
 
-        {/* Full logo for lg+ screen sizes*/}
+        {/* Full logo for md+ screen sizes*/}
         <Link href="/">
           <a
             rel="noopener noreferrer"
@@ -81,7 +81,7 @@ function Navbar(props, ref) {
             </div>
           </a>
         </Link>
-        {/* Icon logo for md- screen sizes*/}
+        {/* Icon logo for sm- screen sizes*/}
         <Link href="/">
           <a
             rel="noopener noreferrer"

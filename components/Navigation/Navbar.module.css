@@ -10,22 +10,22 @@
 
 .fullLogoLink {
     @apply flex items-center p-1 ml-1 hidden;
-    @apply lg:block;
+    @apply md:block;
 }
 
 .fullLogoWrapper {
     @apply flex items-center relative w-40 h-12 hidden;
-    @apply lg:block;
+    @apply md:block;
 }
 
 .iconLogoLink {
     @apply flex items-center;
-    @apply lg:hidden;
+    @apply md:hidden;
 }
 
 .iconLogoWrapper {
     @apply flex items-center relative w-12 h-8; 
-    @apply lg:hidden;
+    @apply md:hidden;
 }
 
 .sidebarBtn {
