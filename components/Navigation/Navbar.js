@@ -5,7 +5,7 @@ import Image from 'next/image';
 import fullLogo from '../../public/jumble-logo-full.png';
 import iconLogo from '../../public/icon-purple-transparent.png';
 import Sidebar from './Sidebar/Sidebar';
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useEffect } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import { CgProfile } from 'react-icons/cg';
 import CustomSearchBox from '../Search/CustomSearchBox';
@@ -41,6 +41,15 @@ const UserComponent = ({ user }) => {
 function Navbar(props, ref) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user, error, isLoading } = useUser();
+  const [isMdScreen, setIsMdScreen] = useState(false);
+
+  const handleResize = () => {
+    if (window.innerWidth <= 1023) {
+      setIsMdScreen(true);
+    } else {
+      setIsMdScreen(false);
+    }
+  };
 
   const toggleSidebar = () => {
     setSidebarOpen((curr) => !curr);
@@ -49,6 +58,17 @@ function Navbar(props, ref) {
   const closeSidebar = () => {
     setSidebarOpen(false);
   };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+
+  useEffect(() => {
+    if (!isMdScreen) closeSidebar();
+  }, [isMdScreen]);
 
   return (
     <header ref={ref} className={styles.header}>
