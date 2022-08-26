@@ -1,10 +1,10 @@
 .sidebarContainer {
     @apply fixed flex-row right-0 top-16 h-screen w-screen bg-gray-100 z-50 divide-y divide-gray-300;
-    @apply md:top-20
+    @apply md:top-20;
 }
 
 .sidebarMenu {
-    @apply flex flex-col pt-4 px-12 ;
+    @apply flex flex-col pt-4 px-12;
 }
 
 .menuItem {

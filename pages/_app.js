@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import Script from 'next/script';
 import Layout from '../components/Layout';
 import Head from 'next/head';
+import { UserProvider } from '@auth0/nextjs-auth0';
 import { hotjar } from 'react-hotjar';
 import { useEffect } from 'react';
 
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Jumble</title>
+        <title>UCR Clubs</title>
         <link rel="icon" href="/favicon.ico" />
 
       </Head>
@@ -35,9 +36,11 @@ function MyApp({ Component, pageProps }) {
         });
       `}
       </Script>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <UserProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UserProvider>
     </>
   );
 }
