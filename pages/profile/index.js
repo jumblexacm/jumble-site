@@ -1,29 +1,20 @@
-import OrgList from '../../components/Organizations/OrgList';
-import clientPromise from '../../lib/mongodb';
+import { useUser } from '@auth0/nextjs-auth0';
+import UserProfile from '../../components/Profile/UserProfile';
+import SignInButton from '../../components/Profile/SignInButton';
+import SignOutButton from '../../components/Profile/SignOutButton';
 
-export default function OrganizationsPage({ orgs }) {
+// Source: https://auth0.github.io/nextjs-auth0/modules/frontend_use_user.html
+export default function UserProfilePage() {
+  const { user, error, isLoading } = useUser();
+  
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>{error.message}</div>;
+  if (!user) return <SignInButton />;
+  
   return (
-    <div className="bg-gray-50">
-      <h1 className="text-center font-semibold text-2xl pt-14">
-        Organization List
-      </h1>
-      <OrgList orgs={orgs}></OrgList>
+    <div className="flex flex-col grow">
+      <UserProfile user={user} />
+      <SignOutButton />
     </div>
   );
-}
-
-export async function getServerSideProps(context) {
-  const client = await clientPromise;
-  const db = client.db(process.env.MONGODB_DB);
-  const orgs = await db
-    .collection('Orgs')
-    .find({})
-    .sort({ recency: -1 })
-    .toArray();
-
-  return {
-    props: {
-      orgs: JSON.parse(JSON.stringify(orgs)),
-    },
-  };
 }
