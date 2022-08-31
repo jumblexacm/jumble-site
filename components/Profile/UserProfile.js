@@ -22,7 +22,13 @@ function UserProfile({ user }) {
         <h1 className={styles.userProfileName}>Hello!</h1>
       ) }
       <div className={styles.userProfileEmail}>
-        Email: {user?.email}
+        Email: &nbsp;
+        <a
+          href={"mailto:" + user?.email}
+          className="hover:text-purple-600"
+        >
+          {user?.email}
+        </a>
       </div>
     </div>
   );
