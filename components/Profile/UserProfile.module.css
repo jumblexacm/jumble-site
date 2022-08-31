@@ -12,3 +12,7 @@
 .userProfileName {
     @apply text-center text-2xl font-semibold;
 }
+
+.userProfileEmail {
+    @apply flex justify-center content-center py-4;
+}

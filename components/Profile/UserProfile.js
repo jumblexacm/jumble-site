@@ -15,7 +15,15 @@ function UserProfile({ user }) {
           className="rounded-full"
         />
       </div>
-      <h1 className={styles.userProfileName}>Hello, {user?.name}!</h1>
+      { user?.name && user?.name != user?.email ? (
+        // For example, the user is using a Google account
+        <h1 className={styles.userProfileName}>Hello, {user?.name}!</h1>
+      ) : (
+        <h1 className={styles.userProfileName}>Hello!</h1>
+      ) }
+      <div className={styles.userProfileEmail}>
+        Email: {user?.email}
+      </div>
     </div>
   );
 }
