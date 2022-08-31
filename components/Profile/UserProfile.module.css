@@ -14,5 +14,5 @@
 }
 
 .userProfileEmail {
-    @apply flex justify-center content-center py-4;
+    @apply flex justify-center content-center;
 }
