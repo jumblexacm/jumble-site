@@ -1,7 +1,6 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import UserProfile from '../../components/Profile/UserProfile';
-import SignInButton from '../../components/Profile/SignInButton';
-import SignOutButton from '../../components/Profile/SignOutButton';
+import { SignInButton, SignOutButton} from '../../components/Profile/SignInSignOutButtons';
 
 // Source: https://auth0.github.io/nextjs-auth0/modules/frontend_use_user.html
 export default function UserProfilePage() {
