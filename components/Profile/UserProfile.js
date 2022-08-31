@@ -6,7 +6,7 @@ import Link from 'next/link';
 function UserProfile({ user }) {
   return (
     <div className={styles.userProfileContainer}>
-      <div className={styles.userImageWrapper}>
+      <div className={styles.userProfileImageWrapper}>
         <Image
           src={user.picture}
           alt=""
@@ -15,7 +15,7 @@ function UserProfile({ user }) {
           className="rounded-full"
         />
       </div>
-      <h4>Hello, {user?.name}!</h4>
+      <h1 className={styles.userProfileName}>Hello, {user?.name}!</h1>
     </div>
   );
 }
