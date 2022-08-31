@@ -3,6 +3,7 @@ import styles from './UserProfile.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SignInButton, SignOutButton} from './SignInSignOutButtons';
+import OrgList from '../Organizations/OrgList';
 
 function BlankUserProfile() {
   return (
@@ -13,7 +14,7 @@ function BlankUserProfile() {
   );
 }
 
-function UserProfile({ user }) {
+function UserProfile({ user, orgs }) {
   if (!user) return <BlankUserProfile />;
   return (
     <div className={styles.userProfileContainer}>
@@ -45,6 +46,10 @@ function UserProfile({ user }) {
       </div>
       
       <SignOutButton />
+      
+      <div className="bg-gray-50">
+        <OrgList orgs={orgs}></OrgList>
+      </div>
     </div>
   );
 }
