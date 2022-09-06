@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import Head from 'next/head';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { hotjar } from 'react-hotjar';
+import mixpanel from 'mixpanel-browser';
 import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }) {
         process.env.NEXT_PUBLIC_HOTJAR_SITE_ID,
         process.env.NEXT_PUBLIC_HOTJAR_SV
       );
+      mixpanel.init('MIXPANEL_PROJECT_TOKEN', {debug: true});//debug setting will only be used during testing, and should be removed during prod
   }, []);
   
   return (
