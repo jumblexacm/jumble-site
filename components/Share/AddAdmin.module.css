@@ -1,0 +1,8 @@
+.addIcon {
+    @apply absolute text-2xl cursor-pointer right-4 mt-4;
+    @apply sm:right-8;
+}
+
+.addIcon:hover {
+    @apply text-purple-600;
+}

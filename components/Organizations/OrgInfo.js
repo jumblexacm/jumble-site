@@ -1,12 +1,17 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './OrgInfo.module.css';
 import CopyToClip from '../Share/CopyToClip';
+import AddAdmin from '../Share/AddAdmin';
+import { useUser } from '@auth0/nextjs-auth0';
 
-function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
+function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
   const minChars = 525;
   const [charsToShow, setcharsToShow] = useState(minChars);
   const [expanded, setExpanded] = useState(false);
+
+  const { user, error, isLoading } = useUser();
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const readMore = () => {
     if (charsToShow === minChars) {
@@ -18,9 +23,17 @@ function OrgInfo({ org_name, org_avatar_url, org_description = '' }) {
     }
   };
 
+  useEffect(() => {
+    if (user && user['https://ucrclubs.com/adminFor'].includes(org_id)) {
+      setIsAdmin(true);
+    }
+  }, [user, org_id]);
+
   return (
     <div className={styles.orgInfoContainer}>
       <CopyToClip />
+
+      {isAdmin && <AddAdmin />}
       <div className={styles.orgImageWrapper}>
         <Image
           src={org_avatar_url}
