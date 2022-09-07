@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './OrgInfo.module.css';
 import CopyToClip from '../Share/CopyToClip';
 import AddAdmin from '../Share/AddAdmin';
+import AddAdminModal from './AddAdminModal';
 import { useUser } from '@auth0/nextjs-auth0';
 
 function OrgDescription({ org_description }) {
@@ -69,8 +70,8 @@ function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
   return (
     <div className={styles.orgInfoContainer}>
       <CopyToClip />
-
-      {isAdmin && <AddAdmin />}
+      {isAdmin && <AddAdmin openModal={openModal} />}
+      <AddAdminModal isOpen={isOpen} closeModal={closeModal} />
       <div className={styles.orgImageWrapper}>
         <Image
           src={org_avatar_url}

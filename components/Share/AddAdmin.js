@@ -1,10 +1,12 @@
 import { HiOutlineUserAdd } from 'react-icons/hi';
 import styles from './AddAdmin.module.css';
+import { useState } from 'react';
 
-function AddAdmin() {
+function AddAdmin({openModal}) {
+
   return (
     <div>
-      <HiOutlineUserAdd className={styles.addIcon} />
+      <HiOutlineUserAdd className={styles.addIcon} onClick={openModal}/>
     </div>
   );
 }

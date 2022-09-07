@@ -1,0 +1,52 @@
+.modal {
+   @apply absolute bg-gray-50 z-50 w-2/4 h-3/4 top-1/2 left-1/2 rounded-lg;
+   transform: translate(-50%, -50%);
+}
+
+.overlay {
+    @apply fixed z-50 left-0 top-0 w-full h-full;
+    background-color: rgba(0, 0, 0, 0.3);
+    touch-action: none; 
+    overflow: hidden;
+}
+
+.closeBtn {
+    @apply text-[2.5rem] pr-4 pt-4 float-right cursor-pointer;    
+}
+
+.emailInput {
+    @apply w-full bg-white border-[1px] border-gray-300 rounded-md px-3 py-1.5;
+    @apply focus:border-purple-500 focus:shadow-inner focus:outline-none;
+}
+
+.inviteBtn {
+    @apply rounded-md px-3 py-2 ml-4 bg-purple-600 text-gray-50;
+}
+
+.inviteBtn:hover {
+    @apply bg-purple-700;
+}
+
+.cancelBtn {
+    @apply rounded-md px-3 py-2 bg-gray-200;
+}
+
+.cancelBtn:hover {
+    @apply bg-gray-300;
+}
+
+.addBtn {
+    @apply rounded-md px-3 py-1 mt-2 bg-purple-600 text-gray-50 float-right;
+}
+
+.addBtn:hover {
+    @apply bg-purple-700;
+}
+
+.removeEmail {
+    @apply mr-2 mt-2 cursor-pointer text-base text-gray-400; 
+}
+
+.removeEmail:hover {
+    @apply rounded-full border-2 bg-red-200 border-red-200 text-gray-800;
+}
