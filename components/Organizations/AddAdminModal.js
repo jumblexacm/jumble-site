@@ -101,14 +101,12 @@ function AddAdminModal({ isOpen, closeModal, orgId }) {
             <HiOutlineX onClick={handleClose} className={styles.closeBtn} />
           </div>
           <div className="mx-8">
-            <h1 className="text-2xl mb-8 font-medium">
-              Invite Admins To Your Org
-            </h1>
+            <h1 className={styles.title}>Invite Admins To Your Org</h1>
             <form className="grid" onSubmit={handleEmailSubmit}>
               {submitted && !valid ? (
-                <label className="text-lg mb-2.5 text-red-600">Email *</label>
+                <label className={styles.emailLabelError}>Email *</label>
               ) : (
-                <label className="text-lg mb-2.5">Email</label>
+                <label className={styles.emailLabel}>Email</label>
               )}
 
               <div className="col-2">
@@ -129,11 +127,11 @@ function AddAdminModal({ isOpen, closeModal, orgId }) {
               </div>
             </form>
             {emails.length ? (
-              <h1 className="text-lg mb-2.5">Users to add</h1>
+              <h1 className={styles.emailListTitle}>Users to add</h1>
             ) : null}
             <ul>
               {emails?.map((email, index) => (
-                <li key={index} className="flex text-lg">
+                <li key={index} className={styles.emailListItem}>
                   <HiOutlineX
                     className={styles.removeEmail}
                     value={email}
@@ -148,7 +146,7 @@ function AddAdminModal({ isOpen, closeModal, orgId }) {
                 Please add at least one email *
               </span>
             ) : null}
-            <div className="mr-8 absolute right-0 bottom-8">
+            <div className={styles.bottomBtnGroup}>
               <button className={styles.cancelBtn} onClick={handleClose}>
                 Cancel
               </button>
