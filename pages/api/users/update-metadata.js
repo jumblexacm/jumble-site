@@ -10,8 +10,7 @@ export default withApiAuthRequired(async function userHandler(req, res) {
   }
 
   try {
-    const params = { [property]: orgId };
-
+    
     const userManagementClient = new ManagementClient({
       domain: process.env.AUTH0_ISSUER_BASE_URL.replace('https://', ''),
       clientId: process.env.AUTH0_CLIENT_ID,
@@ -21,6 +20,9 @@ export default withApiAuthRequired(async function userHandler(req, res) {
     userManagementClient.getUsersByEmail(email).then((users) => {
       users.forEach((user) => {
         const idParam = { id: user.user_id };
+        let userOrgs = user.app_metadata[property];
+        userOrgs.push(orgId);
+        const params = { [property]: userOrgs };
         userManagementClient.updateAppMetadata(idParam, params);
       });
     });
