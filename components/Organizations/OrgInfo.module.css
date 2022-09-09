@@ -14,8 +14,8 @@
 }
 
 .descriptionText {
-    @apply mx-36 pb-4 text-left space-y-4 text-gray-600;
-    @apply md:space-y-0 md:space-x-6 md:flex-row;
+    @apply mx-10 pb-4 text-center space-y-4 text-gray-600;
+    @apply md:mx-32 md:space-y-0 md:space-x-6 md:flex-row;
 }
 
 .readMoreBtn {

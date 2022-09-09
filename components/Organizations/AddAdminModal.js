@@ -1,15 +1,29 @@
 import ReactModal from 'react-modal';
 import styles from './AddAdminModal.module.css';
 import { HiOutlineX } from 'react-icons/hi';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 ReactModal.setAppElement('body');
-function AddAdminModal({ isOpen, closeModal }) {
+function AddAdminModal({ isOpen, closeModal, orgId }) {
   const [currEmail, setCurrEmail] = useState('');
   const [emails, setEmails] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const [submitAll, setSubmitAll] = useState(false);
   const [valid, setValid] = useState(false);
+
+  const didMount = useRef(false);
+
+  useEffect(() => {
+    if (!didMount.current) {
+      didMount.current = true;
+      return;
+    }
+
+    if (submitAll && emails.length) {
+      handleClose();
+    }
+  });
 
   const handleInputChange = (event) => {
     setCurrEmail(event.target.value);
@@ -24,6 +38,7 @@ function AddAdminModal({ isOpen, closeModal }) {
       }
       setValid(true);
       setCurrEmail('');
+      setSubmitAll(false);
     } else {
       setValid(false);
     }
@@ -34,6 +49,15 @@ function AddAdminModal({ isOpen, closeModal }) {
     setEmails(emails.filter((email) => email !== emailRef));
   };
 
+  const handleClose = () => {
+    setCurrEmail('');
+    setEmails([]);
+    setSubmitted(false);
+    setValid(false);
+    setSubmitAll(false);
+    closeModal();
+  };
+
   const validateEmail = (email) => {
     // Regex for anystring@anystring.anystring
     const re = /\S+@\S+\.\S+/;
@@ -41,20 +65,22 @@ function AddAdminModal({ isOpen, closeModal }) {
   };
 
   const handleSubmitAll = () => {
-    console.log(emails);
-    const responses = Promise.allSettled(
-      emails.map(async (email) => {
-        const data = {
-          email,
-          orgId: '1002328503913554051',
-          property: 'adminFor',
-        };
-        axios
-          .post('/api/users/update-metadata', data)
-          .then((res) => console.log(res.data))
-          .catch((err) => console.log(err));
-      })
-    );
+    setSubmitAll(true);
+    if (emails.length) {
+      Promise.allSettled(
+        emails.map(async (email) => {
+          const data = {
+            email,
+            orgId,
+            property: 'adminFor',
+          };
+          axios
+            .post('/api/users/update-metadata', data)
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err));
+        })
+      );
+    }
   };
 
   const logEmails = () => {
@@ -72,11 +98,11 @@ function AddAdminModal({ isOpen, closeModal }) {
       >
         <div className="grid">
           <div>
-            <HiOutlineX onClick={closeModal} className={styles.closeBtn} />
+            <HiOutlineX onClick={handleClose} className={styles.closeBtn} />
           </div>
-          <div className=" mx-8">
+          <div className="mx-8">
             <h1 className="text-2xl mb-8 font-medium">
-              Invite admins to your org
+              Invite Admins To Your Org
             </h1>
             <form className="grid" onSubmit={handleEmailSubmit}>
               {submitted && !valid ? (
@@ -117,8 +143,13 @@ function AddAdminModal({ isOpen, closeModal }) {
                 </li>
               ))}
             </ul>
+            {submitAll && !emails.length ? (
+              <span className="text-red-600">
+                Please add at least one email *
+              </span>
+            ) : null}
             <div className="mr-8 absolute right-0 bottom-8">
-              <button className={styles.cancelBtn} onClick={closeModal}>
+              <button className={styles.cancelBtn} onClick={handleClose}>
                 Cancel
               </button>
               <button className={styles.inviteBtn} onClick={handleSubmitAll}>

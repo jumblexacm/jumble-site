@@ -72,7 +72,7 @@ function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
     <div className={styles.orgInfoContainer}>
       <CopyToClip />
       {isAdmin && <AddAdmin openModal={openModal} />}
-      <AddAdminModal isOpen={isOpen} closeModal={closeModal} />
+      <AddAdminModal isOpen={isOpen} closeModal={closeModal} orgId={org_id} />
       <div className={styles.orgImageWrapper}>
         <Image
           src={org_avatar_url}
