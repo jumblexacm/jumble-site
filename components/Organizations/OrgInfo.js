@@ -62,6 +62,7 @@ function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
   };
 
   useEffect(() => {
+    console.log(user);
     if (user && user['https://ucrclubs.com/adminFor'].includes(org_id)) {
       setIsAdmin(true);
     }

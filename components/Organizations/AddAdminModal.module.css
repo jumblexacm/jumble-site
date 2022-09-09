@@ -50,3 +50,7 @@
 .removeEmail:hover {
     @apply rounded-full border-2 bg-red-200 border-red-200 text-gray-800;
 }
+
+.emailError {
+    @apply inline-block mt-2 text-red-600;
+}
