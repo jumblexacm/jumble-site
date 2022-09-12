@@ -101,7 +101,10 @@ function AddAdminModal({ isOpen, closeModal, orgId }) {
             <HiOutlineX onClick={handleClose} className={styles.closeBtn} />
           </div>
           <div className="mx-8">
-            <h1 className={styles.title}>Invite Admins To Your Org</h1>
+            <h1 className={styles.title}>Set Admins For Your Org</h1>
+            <p className="mb-8 text-sm">
+              * Users you set must already have an account.
+            </p>
             <form className="grid" onSubmit={handleEmailSubmit}>
               {submitted && !valid ? (
                 <label className={styles.emailLabelError}>Email *</label>
@@ -151,7 +154,7 @@ function AddAdminModal({ isOpen, closeModal, orgId }) {
                 Cancel
               </button>
               <button className={styles.inviteBtn} onClick={handleSubmitAll}>
-                Invite
+                Submit
               </button>
             </div>
           </div>
