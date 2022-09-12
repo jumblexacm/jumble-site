@@ -34,7 +34,7 @@ export default function UserProfilePage({ orgs }) {
   
   useEffect(() => {
     console.log(user);
-    fetchFollowedOrgs(user['https://ucrclubs.com/following'].toString());
+    fetchFollowedOrgs(JSON.stringify(orgIDs));
   });
   
   return (

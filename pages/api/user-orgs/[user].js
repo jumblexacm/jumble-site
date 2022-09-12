@@ -3,6 +3,7 @@
 // export default function handler(req, res) {
 export default function handler(req, res) {
   console.log("req.query: ", req.query);
+  console.log("JSON.parse(req.query.user): ", JSON.parse(req.query.user));
   res.status(200).json({ name: 'John Doe' });
   
   // console.log("I'm here");
