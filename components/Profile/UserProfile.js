@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './UserProfile.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,8 +14,24 @@ function BlankUserProfile() {
   );
 }
 
-function UserProfile({ user, orgs }) {
+function UserProfile({ user }) {
   if (!user) return <BlankUserProfile />;
+  
+  var orgIDs = {};
+  orgIDs = {
+    followed: user['https://ucrclubs.com/following'],
+    managed: user['https://ucrclubs.com/adminFor']
+  }
+  
+  useEffect(() => {
+    console.log(user);
+    const orgIDsString = JSON.stringify(orgIDs);
+    fetch(`api/user-orgs/${orgIDsString}`)
+      .then((res) => console.log(res));
+  });
+  
+  var orgs = [];
+  
   return (
     <div className={styles.userProfileContainer}>
       <div className={styles.userProfileImageWrapper}>
