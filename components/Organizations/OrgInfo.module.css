@@ -14,10 +14,10 @@
 }
 
 .descriptionText {
-    @apply px-36 text-center space-y-4 text-gray-600;
-    @apply md:space-y-0 md:space-x-6 md:flex-row;
+    @apply mx-10 pb-4 text-center space-y-4 text-gray-600;
+    @apply md:mx-32 md:space-y-0 md:space-x-6 md:flex-row;
 }
 
 .readMoreBtn {
-    @apply flex justify-center content-center py-4;
+    @apply flex justify-center content-center pb-4;
 }
