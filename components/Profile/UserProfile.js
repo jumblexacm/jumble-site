@@ -21,7 +21,7 @@ function UserProfile({ user, orgs }) {
       <div className={styles.userProfileImageWrapper}>
         <Image
           src={user.picture}
-          alt=""
+          alt={user.name}
           layout="fill"
           objectFit="cover"
           className="rounded-full"
