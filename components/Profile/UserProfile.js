@@ -66,9 +66,42 @@ function UserProfile({ user }) {
       
       <SignOutButton />
       
-      <div className="bg-gray-50">
-        <OrgList orgs={followedOrgs}></OrgList>
-        <OrgList orgs={managedOrgs}></OrgList>
+      <div className={styles.userProfileManagedOrgsContainer}>
+        <br/>
+        <div className={styles.userProfileOrgsHeading}>Orgs You Manage</div>
+        {managedOrgs.length ? (
+          <OrgList orgs={managedOrgs}></OrgList>
+        ) : (
+          <div className={styles.userProfileNoOrgs}>
+            You're not an admin for any orgs. &nbsp;
+            <a
+              href='/organizations'
+              className="hover:text-purple-600"
+            >
+              <em>Click here to explore orgs.</em>
+            </a>
+          </div>
+        )}
+        <br/>
+      </div>
+      
+      <div className={styles.userProfileFollowedOrgsContainer}>
+        <br/>
+        <div className={styles.userProfileOrgsHeading}>Orgs You Follow</div>
+        {followedOrgs.length ? (
+          <OrgList orgs={followedOrgs}></OrgList>
+        ) : (
+          <div className={styles.userProfileNoOrgs}>
+            You're not following any orgs. &nbsp;
+            <a
+              href='/organizations'
+              className="hover:text-purple-600"
+            >
+              <em>Click here to explore orgs.</em>
+            </a>
+          </div>
+        )}
+        <br/>
       </div>
     </div>
   );
