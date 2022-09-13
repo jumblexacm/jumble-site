@@ -30,10 +30,10 @@ function Footer(props, ref) {
           <li>
             <p className={styles.rightListText}>Contact Us</p>
             <a
-              href="mailto:admin@joinjumble.com"
+              href="mailto:ucrclubs@gmail.com"
               className="hover:text-purple-600"
             >
-              admin@joinjumble.com
+              ucrclubs@gmail.com
             </a>
           </li>
         </ul>
