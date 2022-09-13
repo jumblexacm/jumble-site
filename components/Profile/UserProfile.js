@@ -3,7 +3,7 @@ import styles from './UserProfile.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SignInButton, SignOutButton} from './SignInSignOutButtons';
-import OrgList from '../Organizations/OrgList';
+import UserOrgs from './UserOrgs';
 
 function BlankUserProfile() {
   return (
@@ -73,41 +73,19 @@ function UserProfile({ user }) {
       ) : (
         
         <div>
-          <div className={styles.userProfileManagedOrgsContainer}>
-            <br/>
-            <div className={styles.userProfileOrgsHeading}>Orgs You Manage</div>
-            {managedOrgs.length ? (
-              <OrgList orgs={managedOrgs}></OrgList>
-            ) : (
-              <div className={styles.userProfileNoOrgs}>
-                You're not an admin for any orgs. &nbsp;
-                <Link href='/organizations'>
-                  <a className="hover:text-purple-600">
-                    <em>Click here to explore orgs.</em>
-                  </a>
-                </Link>
-              </div>
-            )}
-            <br/>
-          </div>
+          <UserOrgs
+            className="bg-gray-200"
+            heading="Orgs You Manage"
+            orgs={managedOrgs}
+            noOrgsMessage="You're not an admin for any orgs."
+          />
           
-          <div className={styles.userProfileFollowedOrgsContainer}>
-            <br/>
-            <div className={styles.userProfileOrgsHeading}>Orgs You Follow</div>
-            {followedOrgs.length ? (
-              <OrgList orgs={followedOrgs}></OrgList>
-            ) : (
-              <div className={styles.userProfileNoOrgs}>
-                You're not following any orgs. &nbsp;
-                <Link href='/organizations'>
-                  <a className="hover:text-purple-600">
-                    <em>Click here to explore orgs.</em>
-                  </a>
-                </Link>
-              </div>
-            )}
-            <br/>
-          </div>
+          <UserOrgs
+            className="bg-gray-400"
+            heading="Orgs You Follow"
+            orgs={followedOrgs}
+            noOrgsMessage="You're not following any orgs."
+          />
         </div>
         
       )}
