@@ -29,7 +29,7 @@ function UserProfile({ user }) {
   
   useEffect(() => {
     const orgIDsString = JSON.stringify(orgIDs);
-    fetch(`api/user-orgs/${orgIDsString}`)
+    fetch(`api/users/${orgIDsString}`)
       .then((res) => res.json())
       .then((data) => {
         setFollowedOrgs(data.followedOrgs);

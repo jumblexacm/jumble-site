@@ -1,11 +1,9 @@
 import clientPromise from '../../../lib/mongodb';
 
-// TODO Rename to users/[orgIDs].js or orgs/[orgIDs].js
-
 export default async function handler(req, res) {
   const db = (await clientPromise).db(process.env.MONGODB_DB);
   
-  const orgIDs = JSON.parse(req.query.user);
+  const orgIDs = JSON.parse(req.query.orgIDs);
   
   const followedOrgIDs = orgIDs['followed'];
   const managedOrgIDs = orgIDs['managed'];
