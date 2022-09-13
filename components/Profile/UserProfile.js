@@ -70,51 +70,51 @@ function UserProfile({ user }) {
       <SignOutButton />
       
       {isLoading ? (
-      
-      <div className={styles.userProfileNoOrgs}>Loading orgs...</div>
-      
+        
+        <div className={styles.userProfileNoOrgs}>Loading orgs...</div>
+        
       ) : (
-      
-      <div>
-      <div className={styles.userProfileManagedOrgsContainer}>
-        <br/>
-        <div className={styles.userProfileOrgsHeading}>Orgs You Manage</div>
-        {managedOrgs.length ? (
-          <OrgList orgs={managedOrgs}></OrgList>
-        ) : (
-          <div className={styles.userProfileNoOrgs}>
-            You're not an admin for any orgs. &nbsp;
-            <a
-              href='/organizations'
-              className="hover:text-purple-600"
-            >
-              <em>Click here to explore orgs.</em>
-            </a>
+        
+        <div>
+          <div className={styles.userProfileManagedOrgsContainer}>
+            <br/>
+            <div className={styles.userProfileOrgsHeading}>Orgs You Manage</div>
+            {managedOrgs.length ? (
+              <OrgList orgs={managedOrgs}></OrgList>
+            ) : (
+              <div className={styles.userProfileNoOrgs}>
+                You're not an admin for any orgs. &nbsp;
+                <a
+                  href='/organizations'
+                  className="hover:text-purple-600"
+                >
+                  <em>Click here to explore orgs.</em>
+                </a>
+              </div>
+            )}
+            <br/>
           </div>
-        )}
-        <br/>
-      </div>
-      
-      <div className={styles.userProfileFollowedOrgsContainer}>
-        <br/>
-        <div className={styles.userProfileOrgsHeading}>Orgs You Follow</div>
-        {followedOrgs.length ? (
-          <OrgList orgs={followedOrgs}></OrgList>
-        ) : (
-          <div className={styles.userProfileNoOrgs}>
-            You're not following any orgs. &nbsp;
-            <a
-              href='/organizations'
-              className="hover:text-purple-600"
-            >
-              <em>Click here to explore orgs.</em>
-            </a>
+          
+          <div className={styles.userProfileFollowedOrgsContainer}>
+            <br/>
+            <div className={styles.userProfileOrgsHeading}>Orgs You Follow</div>
+            {followedOrgs.length ? (
+              <OrgList orgs={followedOrgs}></OrgList>
+            ) : (
+              <div className={styles.userProfileNoOrgs}>
+                You're not following any orgs. &nbsp;
+                <a
+                  href='/organizations'
+                  className="hover:text-purple-600"
+                >
+                  <em>Click here to explore orgs.</em>
+                </a>
+              </div>
+            )}
+            <br/>
           </div>
-        )}
-        <br/>
-      </div>
-      </div>
-      
+        </div>
+        
       )}
     
     </div>
