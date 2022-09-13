@@ -2,8 +2,8 @@ import styles from './Navbar.module.css';
 import Dropdown from './Dropdown/Dropdown';
 import Link from 'next/link';
 import Image from 'next/image';
-import fullLogo from '../../public/jumble-logo-full.png';
-import iconLogo from '../../public/icon-purple-transparent.png';
+import fullLogo from '../../public/logo-full-transparent.png';
+import iconLogo from '../../public/logo-icon-transparent.png';
 import Sidebar from './Sidebar/Sidebar';
 import { useState, forwardRef, useEffect } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
@@ -94,7 +94,7 @@ function Navbar(props, ref) {
             <div className={styles.fullLogoWrapper}>
               <Image
                 src={fullLogo}
-                alt={'Jumble Logo'}
+                alt={'UCR Clubs Logo'}
                 layout="fill"
                 objectFit="contain"
               ></Image>
@@ -111,7 +111,7 @@ function Navbar(props, ref) {
             <div className={styles.iconLogoWrapper}>
               <Image
                 src={iconLogo}
-                alt={'Jumble Logo'}
+                alt={'UCR Clubs Logo'}
                 layout="fill"
                 objectFit="contain"
               ></Image>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import logo from '../../public/jumble-logo-full.png';
+import logo from '../../public/logo-full-transparent.png';
 import styles from './Footer.module.css';
 import { forwardRef } from 'react';
 
@@ -18,7 +18,7 @@ function Footer(props, ref) {
               <div className={styles.imageWrapper}>
                 <Image
                   src={logo}
-                  alt={'Jumble Logo'}
+                  alt={'UCR Clubs Logo'}
                   layout="fill"
                   objectFit="contain"
                 ></Image>
