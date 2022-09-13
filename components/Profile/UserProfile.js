@@ -67,7 +67,9 @@ function UserProfile({ user }) {
       <SignOutButton />
       
       {isLoading ? (
-        <div className={styles.userProfileNoOrgs}>Loading orgs...</div>
+        <div className={styles.userProfileOrgsNote}>
+          <em>Loading orgs...</em>
+        </div>
       ) : (
         <UserOrgs
           className="bg-gray-200"
