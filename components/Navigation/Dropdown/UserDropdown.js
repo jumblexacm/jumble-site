@@ -4,8 +4,7 @@ import MenuItemComponent from './MenuItemComponent';
 import styles from './Dropdown.module.css';
 import Image from 'next/image';
 
-// Change path property to route to correct pages
-const menuItems = [{ text: 'Profile', path: '#' }];
+const menuItems = [{ text: 'Profile', path: 'profile' }];
 
 function UserDropdown({ userPic, userName }) {
   return (
