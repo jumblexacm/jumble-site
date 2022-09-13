@@ -31,7 +31,7 @@ function Footer(props, ref) {
             <p className={styles.rightListText}>Contact Us</p>
             <a
               href="mailto:ucrclubs@gmail.com"
-              className="hover:text-purple-600"
+              className="hover:text-blue-600"
             >
               ucrclubs@gmail.com
             </a>
