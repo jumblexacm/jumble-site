@@ -8,7 +8,7 @@
 }
 
 .toggleLeftOn {
-    @apply w-24 py-1.5 rounded-l-md bg-purple-600 text-gray-50 duration-300 sm:py-2;
+    @apply w-24 py-1.5 rounded-l-md bg-blue-600 text-gray-50 duration-300 sm:py-2;
 }
 
 .toggleRightOff {
@@ -20,5 +20,5 @@
 }
 
 .toggleRightOn {
-    @apply w-24 py-1.5 rounded-r-md bg-purple-600 text-gray-50 duration-300 sm:py-2;
+    @apply w-24 py-1.5 rounded-r-md bg-blue-600 text-gray-50 duration-300 sm:py-2;
 }

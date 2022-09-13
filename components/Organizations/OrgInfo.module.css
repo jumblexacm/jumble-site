@@ -24,7 +24,7 @@
 
 .followBtn {
     @apply flex mx-auto border text-sm border-gray-400 rounded-md px-6 py-1 bg-white duration-300;
-    @apply hover:bg-purple-600 hover:border-purple-600 hover:text-gray-50;
+    @apply hover:bg-blue-600 hover:border-blue-600 hover:text-gray-50;
 }
 
 .followingBtn {
