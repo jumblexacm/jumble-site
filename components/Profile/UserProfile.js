@@ -59,12 +59,9 @@ function UserProfile({ user }) {
       
       <div className={styles.userProfileEmail}>
         Email: &nbsp;
-        <a
-          href={"mailto:" + user.email}
-          className="hover:text-purple-600"
-        >
-          {user.email}
-        </a>
+        <Link href={"mailto:" + user.email}>
+          <a className="hover:text-purple-600">{user.email}</a>
+        </Link>
       </div>
       
       <SignOutButton />
@@ -84,12 +81,11 @@ function UserProfile({ user }) {
             ) : (
               <div className={styles.userProfileNoOrgs}>
                 You're not an admin for any orgs. &nbsp;
-                <a
-                  href='/organizations'
-                  className="hover:text-purple-600"
-                >
-                  <em>Click here to explore orgs.</em>
-                </a>
+                <Link href='/organizations'>
+                  <a className="hover:text-purple-600">
+                    <em>Click here to explore orgs.</em>
+                  </a>
+                </Link>
               </div>
             )}
             <br/>
@@ -103,12 +99,11 @@ function UserProfile({ user }) {
             ) : (
               <div className={styles.userProfileNoOrgs}>
                 You're not following any orgs. &nbsp;
-                <a
-                  href='/organizations'
-                  className="hover:text-purple-600"
-                >
-                  <em>Click here to explore orgs.</em>
-                </a>
+                <Link href='/organizations'>
+                  <a className="hover:text-purple-600">
+                    <em>Click here to explore orgs.</em>
+                  </a>
+                </Link>
               </div>
             )}
             <br/>
