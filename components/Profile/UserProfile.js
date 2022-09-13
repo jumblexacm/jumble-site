@@ -67,11 +67,21 @@ function UserProfile({ user }) {
       <SignOutButton />
       
       {isLoading ? (
-        
         <div className={styles.userProfileNoOrgs}>Loading orgs...</div>
-        
       ) : (
-        
+        <UserOrgs
+          className="bg-gray-200"
+          heading="Orgs You Follow"
+          orgs={followedOrgs}
+          noOrgsMessage="You're not following any orgs."
+        />
+      )}
+    
+    </div>
+  );
+  
+  /*
+  // With managed orgs *and* followed orgs:
         <div>
           <UserOrgs
             className="bg-gray-200"
@@ -79,7 +89,6 @@ function UserProfile({ user }) {
             orgs={managedOrgs}
             noOrgsMessage="You're not an admin for any orgs."
           />
-          
           <UserOrgs
             className="bg-gray-400"
             heading="Orgs You Follow"
@@ -87,11 +96,7 @@ function UserProfile({ user }) {
             noOrgsMessage="You're not following any orgs."
           />
         </div>
-        
-      )}
-    
-    </div>
-  );
+  */
 }
 
 export default UserProfile;
