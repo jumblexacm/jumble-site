@@ -23,8 +23,10 @@ function UserProfile({ user }) {
     managed: user['https://ucrclubs.com/adminFor']
   }
   
+  var [isLoading, setIsLoading] = useState(true);
   var [followedOrgs, setFollowedOrgs] = useState([]);
   var [managedOrgs, setManagedOrgs] = useState([]);
+  
   useEffect(() => {
     const orgIDsString = JSON.stringify(orgIDs);
     fetch(`api/user-orgs/${orgIDsString}`)
@@ -32,6 +34,7 @@ function UserProfile({ user }) {
       .then((data) => {
         setFollowedOrgs(data.followedOrgs);
         setManagedOrgs(data.managedOrgs);
+        setIsLoading(false);
       });
   }, []); // [] stops infinite loops (source: https://stackoverflow.com/a/53074436)
   
@@ -66,6 +69,13 @@ function UserProfile({ user }) {
       
       <SignOutButton />
       
+      {isLoading ? (
+      
+      <div className={styles.userProfileNoOrgs}>Loading orgs...</div>
+      
+      ) : (
+      
+      <div>
       <div className={styles.userProfileManagedOrgsContainer}>
         <br/>
         <div className={styles.userProfileOrgsHeading}>Orgs You Manage</div>
@@ -103,6 +113,10 @@ function UserProfile({ user }) {
         )}
         <br/>
       </div>
+      </div>
+      
+      )}
+    
     </div>
   );
 }
