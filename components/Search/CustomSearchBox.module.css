@@ -9,7 +9,7 @@
 
 .searchInput {
     @apply w-full py-2 pl-10 text-sm rounded bg-white text-gray-900 border-gray-300; 
-    @apply focus:border-purple-600 focus:shadow-inner focus:outline-none;
+    @apply focus:border-blue-600 focus:shadow-inner focus:outline-none;
     border-width: 1px;
 }
 

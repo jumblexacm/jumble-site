@@ -1,7 +1,7 @@
 .copyIcon {
     @apply absolute text-2xl cursor-pointer right-4;
     @apply sm:right-8;
-    @apply hover:text-purple-600;
+    @apply hover:text-blue-600;
 }
 
 .copied {
@@ -10,10 +10,10 @@
 }
 
 .copiedIcon {
-    @apply text-2xl text-purple-600;
+    @apply text-2xl text-blue-600;
 }
 
 .copiedText {
-    @apply hidden text-xs font-medium tracking-wider text-purple-600 mt-1 mr-1;
+    @apply hidden text-xs font-medium tracking-wider text-blue-600 mt-1 mr-1;
     @apply sm:inline-flex;
 }

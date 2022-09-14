@@ -15,12 +15,12 @@
 }
 
 .page:hover{
-    @apply text-purple-600 border-purple-600;
+    @apply text-blue-600 border-blue-600;
 }
 
 .currentPage {
     @apply inline-flex items-center justify-center w-8 h-8 text-sm font-semibold border rounded shadow-md bg-gray-50;
-    @apply text-purple-600 border-purple-600;
+    @apply text-blue-600 border-blue-600;
 }
 
 .pageLink {

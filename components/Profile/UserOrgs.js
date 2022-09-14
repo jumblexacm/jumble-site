@@ -12,7 +12,7 @@ function UserOrgs({ className, heading, orgs, noOrgsMessage }) {
           <OrgList orgs={orgs}></OrgList>
           <div className={styles.userProfileOrgsNote}>
             <Link href='/organizations'>
-              <a className="hover:text-purple-600">
+              <a className="hover:text-blue-600">
                 <em>Click here to explore more orgs.</em>
               </a>
             </Link>
@@ -22,7 +22,7 @@ function UserOrgs({ className, heading, orgs, noOrgsMessage }) {
         <div className={styles.userProfileOrgsNote}>
           {noOrgsMessage} &nbsp;
           <Link href='/organizations'>
-            <a className="hover:text-purple-600">
+            <a className="hover:text-blue-600">
               <em>Click here to explore orgs.</em>
             </a>
           </Link>

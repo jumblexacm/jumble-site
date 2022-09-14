@@ -38,7 +38,7 @@
 }
 
 .htmlText > a {
-    @apply relative text-purple-600 z-10; 
+    @apply relative text-blue-600 z-10; 
 }
 
 .htmlText > img {
