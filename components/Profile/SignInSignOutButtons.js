@@ -3,11 +3,13 @@ import styles from './SignInSignOutButtons.module.css';
 
 function SignInSignOutButtonTemplate({ apiRoute, text }) {
   return (
-    <div className={styles.signInSignOutBtn}>
-      <Link href={apiRoute}>
-        <a className="hover:text-blue-600">{text}</a>
-      </Link>
-    </div>
+    <center>
+      <div className={styles.signInSignOutBtn}>
+        <Link href={apiRoute}>
+          <a>{text}</a>
+        </Link>
+      </div>
+    </center>
   )
 }
 

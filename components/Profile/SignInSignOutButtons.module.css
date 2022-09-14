@@ -1,3 +1,5 @@
 .signInSignOutBtn {
-    @apply flex justify-center content-center;
+    @apply w-24;
+    @apply rounded-md px-3 py-1 mt-2 bg-blue-600 text-gray-50;
+    @apply hover:bg-blue-700;
 }
