@@ -76,7 +76,7 @@ function AddAdminModal({ isOpen, closeModal, orgId }) {
           };
           axios
             .post('/api/users/update-metadata', data)
-            .then((res) => console.log(res.data))
+            .then((res) => console.log(res.status))
             .catch((err) => console.log(err));
         })
       );

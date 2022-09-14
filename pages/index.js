@@ -1,19 +1,58 @@
 import clientPromise from '../lib/mongodb';
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from '../styles/Home.module.css';
 import Timeline from '../components/Timeline/Timeline';
+import TimelineToggle from '../components/Timeline/TimelineToggle';
+import UserTimeline from '../components/Timeline/UserTimeline';
+import { useUser } from '@auth0/nextjs-auth0';
 
 export default function Home({ isConnected, posts }) {
+  const { user, error, isLoading } = useUser();
+  const [userPosts, setUserPosts] = useState([]);
+  const [userPostToggle, setUserPostToggle] = useState(true);
+
+  const didMount = useRef(false);
+
+  const toggleUserPosts = () => {
+    setUserPostToggle((prevState) => !prevState);
+  };
+
   useEffect(() => {
-    const connection = isConnected
-      ? 'You are connected to MongoDB'
-      : 'You are NOT connected to MongoDB';
-    console.log(connection);
-  });
+    if (!didMount.current) {
+      didMount.current = true;
+      if (!isConnected) {
+        console.warn('Error connecting to database');
+      }
+      return;
+    }
+
+    if (user) {
+      const filteredPosts = posts.filter((post) => {
+        return user['https://ucrclubs.com/following'].includes(post.org_id);
+      });
+      if (filteredPosts.length == 0) {
+        setUserPostToggle(false);
+      }
+      setUserPosts(filteredPosts);
+    }
+  }, [isConnected, user, posts]);
 
   return (
     <div className={styles.container}>
-      <Timeline posts={posts}></Timeline>
+      {user && (
+        <TimelineToggle
+          toggleUserPosts={toggleUserPosts}
+          userPostToggle={userPostToggle}
+        />
+      )}
+      {user && userPostToggle ? (
+        <UserTimeline
+          posts={userPosts}
+          following={user['https://ucrclubs.com/following']}
+        />
+      ) : (
+        <Timeline posts={posts}></Timeline>
+      )}
     </div>
   );
 }
@@ -21,7 +60,7 @@ export default function Home({ isConnected, posts }) {
 export async function getServerSideProps(context) {
   try {
     const client = await clientPromise; //connects to Database when publishing
-    const db = client.db(process.env.MONGODB_DB);
+    const db = client.db(process.env.MONGODB_DB); 
     const posts = await db
       .collection('Posts')
       .find()
@@ -29,7 +68,6 @@ export async function getServerSideProps(context) {
       // https://stackoverflow.com/a/5128574
       // _id, created by MongoDB and starts with document creation time
       // -1, signifies the sort is formatted descending (newest at top -> oldest)
-      //.limit(10) //limits amount of queries from MongoDB to only 10 entries
       .toArray();
     return {
       props: {
