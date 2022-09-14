@@ -20,7 +20,9 @@ function UserProfile({ user }) {
   var orgIDs = {};
   orgIDs = {
     followed: user['https://ucrclubs.com/following'],
-    managed: user['https://ucrclubs.com/adminFor']
+    managed: []
+    // If want to show both followed and managed:
+    // managed: user['https://ucrclubs.com/adminFor']
   }
   
   var [isLoading, setIsLoading] = useState(true);
