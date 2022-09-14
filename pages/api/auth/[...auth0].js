@@ -6,7 +6,7 @@ export default handleAuth({
       await handleLogin(req, res, {
         authorizationParams: {
           audience: `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/`,
-          scope: 'openid profile',
+          scope: 'openid profile email',
         },
       });
     } catch (error) {
