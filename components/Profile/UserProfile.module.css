@@ -1,0 +1,30 @@
+.userProfileContainer {
+    @apply px-3 pt-6 space-y-6 items-center bg-gray-50 text-gray-800;
+    @apply sm:px-6;
+}
+
+.userProfileImageWrapper {
+    @apply relative mx-auto h-28 w-28;
+    @apply sm:h-32 sm:w-32;
+    @apply md:h-36 md:w-36;  
+}
+
+.userProfileName {
+    @apply text-center text-2xl font-semibold;
+}
+
+.userProfileEmail {
+    @apply flex justify-center content-center;
+}
+
+.userProfileOrgsHeading {
+    @apply flex justify-center content-center font-semibold;
+    @apply sm:text-lg;
+    @apply md:text-xl;
+}
+
+.userProfileOrgsNote {
+    @apply flex justify-center content-center;
+    @apply sm:text-sm;
+    @apply md:text-lg;
+}
