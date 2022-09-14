@@ -59,12 +59,15 @@ export default function Home({ isConnected, posts }) {
 
 export async function getServerSideProps(context) {
   try {
-    const client = await clientPromise;
-    const db = client.db(process.env.MONGODB_DB);
+    const client = await clientPromise; //connects to Database when publishing
+    const db = client.db(process.env.MONGODB_DB); 
     const posts = await db
       .collection('Posts')
       .find()
       .sort({ _id: -1 })
+      // https://stackoverflow.com/a/5128574
+      // _id, created by MongoDB and starts with document creation time
+      // -1, signifies the sort is formatted descending (newest at top -> oldest)
       .toArray();
     return {
       props: {
