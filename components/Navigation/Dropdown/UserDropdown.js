@@ -4,7 +4,7 @@ import MenuItemComponent from './MenuItemComponent';
 import styles from './Dropdown.module.css';
 import Image from 'next/image';
 
-const menuItems = [{ text: 'Profile', path: 'profile' }];
+const menuItems = [{ text: 'Profile', path: '/profile' }];
 
 function UserDropdown({ userPic, userName }) {
   return (

@@ -5,6 +5,8 @@ import CopyToClip from '../Share/CopyToClip';
 import AddAdmin from '../Share/AddAdmin';
 import AddAdminModal from './AddAdminModal';
 import { useUser } from '@auth0/nextjs-auth0';
+import { HiOutlineCheck } from 'react-icons/hi';
+import axios from 'axios';
 
 function OrgDescription({ org_description }) {
   const minChars = 310;
@@ -52,6 +54,7 @@ function OrgDescription({ org_description }) {
 function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
   const { user, error, isLoading } = useUser();
   const [isAdmin, setIsAdmin] = useState(false);
+  const [following, setFollowing] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
@@ -61,10 +64,31 @@ function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
     setIsOpen(false);
   };
 
+  const toggleFollow = (e) => {
+    e.preventDefault();
+    setFollowing((prevState) => !prevState);
+
+    const data = {
+      orgId: org_id,
+      property: 'following',
+    };
+
+    axios
+      .post('/api/users/update-metadata', data)
+      .then((res) => {
+        console.log(res.status);
+        user['https://ucrclubs.com/following'] = res.data;
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     console.log(user);
     if (user && user['https://ucrclubs.com/adminFor'].includes(org_id)) {
       setIsAdmin(true);
+    }
+    if (user && user['https://ucrclubs.com/following'].includes(org_id)) {
+      setFollowing(true);
     }
   }, [user, org_id]);
 
@@ -84,6 +108,18 @@ function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
       </div>
       <h4 className={styles.orgName}>{org_name}</h4>
       <OrgDescription org_description={org_description} />
+      {following ? (
+        <button className={styles.followingBtn} onClick={toggleFollow}>
+          <span className="flex">
+            Following
+            <HiOutlineCheck className="mt-1 ml-1" />
+          </span>
+        </button>
+      ) : (
+        <button className={styles.followBtn} onClick={toggleFollow}>
+          Follow
+        </button>
+      )}
     </div>
   );
 }

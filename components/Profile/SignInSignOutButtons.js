@@ -1,22 +1,30 @@
 import Link from 'next/link';
 import styles from './SignInSignOutButtons.module.css';
 
-export function SignInButton({ user }) {
+function SignInSignOutButtonTemplate({ apiRoute, text }) {
   return (
     <div className={styles.signInSignOutBtn}>
-      <Link href='/api/auth/login'>
-        <a className="hover:text-blue-600">Sign In</a>
+      <Link href={apiRoute}>
+        <a className="hover:text-purple-600">{text}</a>
       </Link>
     </div>
+  )
+}
+
+export function SignInButton({ user }) {
+  return (
+    <SignInSignOutButtonTemplate
+      apiRoute='/api/auth/login'
+      text="Sign In"
+    />
   );
 }
 
 export function SignOutButton({ user }) {
   return (
-    <div className={styles.signInSignOutBtn}>
-      <Link href='/api/auth/logout'>
-        <a className="hover:text-blue-600">Sign Out</a>
-      </Link>
-    </div>
+    <SignInSignOutButtonTemplate
+      apiRoute='/api/auth/logout'
+      text="Sign Out"
+    />
   );
 }
