@@ -5,7 +5,7 @@ function SignInSignOutButtonTemplate({ apiRoute, text }) {
   return (
     <div className={styles.signInSignOutBtn}>
       <Link href={apiRoute}>
-        <a className="hover:text-purple-600">{text}</a>
+        <a className="hover:text-blue-600">{text}</a>
       </Link>
     </div>
   )
