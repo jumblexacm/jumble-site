@@ -66,20 +66,24 @@ function OrgInfo({ org_id, org_name, org_avatar_url, org_description = '' }) {
 
   const toggleFollow = (e) => {
     e.preventDefault();
-    setFollowing((prevState) => !prevState);
+    if (user) {
+      setFollowing((prevState) => !prevState);
 
-    const data = {
-      orgId: org_id,
-      property: 'following',
-    };
+      const data = {
+        orgId: org_id,
+        property: 'following',
+      };
 
-    axios
-      .post('/api/users/update-metadata', data)
-      .then((res) => {
-        console.log(res.status);
-        user['https://ucrclubs.com/following'] = res.data;
-      })
-      .catch((err) => console.log(err));
+      axios
+        .post('/api/users/update-metadata', data)
+        .then((res) => {
+          console.log(res.status);
+          user['https://ucrclubs.com/following'] = res.data;
+        })
+        .catch((err) => console.log(err));
+    } else {
+      window.location.href = '/api/auth/login';
+    }
   };
 
   useEffect(() => {

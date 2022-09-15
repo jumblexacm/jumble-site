@@ -1,5 +1,9 @@
 import { handleAuth, handleLogin } from '@auth0/nextjs-auth0';
 
+const getLoginState = (req, loginOptions) => {
+  return { returnTo: req.headers.referer };
+};
+
 export default handleAuth({
   async login(req, res) {
     try {
@@ -8,6 +12,7 @@ export default handleAuth({
           audience: `${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/`,
           scope: 'openid profile',
         },
+        getLoginState,
       });
     } catch (error) {
       res.status(error.status || 400).end(error.message);
