@@ -59,7 +59,7 @@ export function UserProfile({ user }) {
       <div className={styles.userProfileEmail}>
         Email: &nbsp;
         <Link href={'mailto:' + user.email}>
-          <a className="hover:text-purple-600">{user.email}</a>
+          <a className="hover:text-blue-600">{user.email}</a>
         </Link>
       </div>
 
