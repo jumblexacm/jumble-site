@@ -17,3 +17,9 @@
 .ourStoryParagraph {
     @apply w-3/4;
 }
+
+.imageWrapper {
+    @apply relative w-12 h-12 flex-shrink-0;
+    @apply sm:w-16 sm:h-16;
+    @apply md:w-20 md:h-20;
+}
