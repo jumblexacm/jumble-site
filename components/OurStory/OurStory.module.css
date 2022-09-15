@@ -9,3 +9,11 @@
 .ourStoryContent {
     @apply mt-5 text-lg text-center;
 }
+
+.ourStoryContent {
+    @apply mt-5 text-lg grid place-items-center space-y-6;
+}
+
+.ourStoryParagraph {
+    @apply w-3/4;
+}

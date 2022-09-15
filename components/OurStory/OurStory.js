@@ -6,13 +6,26 @@ function OurStory() {
         <h1>Our Story</h1>
       </div>
       <div className={styles.ourStoryContent}>
-        <p>
-          {`The UCR Clubs website was created to develop a simpler process for UCR students to
-          discover and stay updated with announcements from clubs at UCR.
-          Designed and built by UCR students, we made sure to keep UCR students'
-          needs in mind, so that they won't have to search around to find their
-          next niche.`}
-        </p>
+        <div className={styles.ourStoryParagraph}>
+          {
+            `UCR Clubs was created to provide a simpler process for students at the University of California, Riverside to discover clubs & organizations on campus.`
+          }
+        </div>
+        <div className={styles.ourStoryParagraph}>
+          {
+            `As UCR students, we know that looking through countless pages to find your niche can be time-consuming and disheartening. So, we’ve designed and built UCR Clubs to facilitate rapid discovery by presenting the most up-to-date information on clubs at UCR.`
+          }
+        </div>
+        <div className={styles.ourStoryParagraph}>
+          {
+            `You’re in good company. UCR’s diverse community is the foundation of our rich variety of organizations where you’re bound to discover clubs that match your many hobbies and passions.`
+          }
+        </div>
+        <div className={styles.ourStoryParagraph}>
+          {
+            `We believe your social circle is your life's most important asset. With UCR Clubs, we aim to elevate the UCR experience by enabling each and every UCR student to explore their interests and find their niche.`
+          }
+        </div>
       </div>
     </div>
   );
