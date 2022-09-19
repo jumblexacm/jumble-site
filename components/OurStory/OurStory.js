@@ -20,7 +20,8 @@ function OurStory() {
             src={dancing}
             alt="Two cartoon characters dancing with musical notes around them"
             layout="fill"
-            objectFit='cover'
+            objectFit="cover"
+            priority
           />
         </div>
         <div className={styles.imageWrapper}>
@@ -28,7 +29,8 @@ function OurStory() {
             src={statistics}
             alt="Two carton characters pointing at a board with a pie chart and bar chart"
             layout="fill"
-            objectFit='cover'
+            objectFit="cover"
+            priority
           />
         </div>
         <div className={styles.ourStoryParagraphLeft}>
@@ -42,7 +44,8 @@ function OurStory() {
             src={gaming}
             alt="Two cartoon characters sitting on couches playing a video game on a TV"
             layout="fill"
-            objectFit='cover'
+            objectFit="cover"
+            priority
           />
         </div>
         <div className={styles.imageWrapper}>
@@ -50,7 +53,8 @@ function OurStory() {
             src={community}
             alt="Two cartoon characters sitting on couches playing a video game on a TV"
             layout="fill"
-            objectFit='cover'
+            objectFit="cover"
+            priority
           />
         </div>
         <div className={styles.ourStoryParagraphLeft}>
