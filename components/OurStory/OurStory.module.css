@@ -1,5 +1,5 @@
 .ourStoryWrapper {
-    @apply mt-10 mb-10 mx-5 align-middle justify-center;
+    @apply mt-10 mb-24 mx-5 align-middle justify-center;
 }
 
 .ourStoryTitle {
@@ -7,19 +7,19 @@
 }
 
 .ourStoryContent {
-    @apply mt-5 text-lg text-center;
+    @apply flex my-5 text-lg text-center grid grid-cols-3 w-3/4 m-auto;
 }
 
-.ourStoryContent {
-    @apply mt-5 text-lg grid place-items-center space-y-6;
+.ourStoryParagraphRight {
+    @apply w-3/4 col-span-2 text-xl text-right mr-24 self-center justify-self-end;
 }
 
-.ourStoryParagraph {
-    @apply w-3/4;
+.ourStoryParagraphLeft {
+    @apply w-3/4 col-span-2 text-xl text-left ml-24 self-center;
 }
 
 .imageWrapper {
-    @apply relative w-12 h-12 flex-shrink-0;
+    @apply relative w-12 h-12 flex-shrink-0 place-self-center;
     @apply sm:w-16 sm:h-16;
-    @apply md:w-20 md:h-20;
+    @apply md:w-80 md:h-64;
 }
