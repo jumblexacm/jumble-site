@@ -15,6 +15,7 @@ export default handleAuth({
         getLoginState,
       });
     } catch (error) {
+      res.redirect('/');
       res.status(error.status || 400).end(error.message);
     }
   },
