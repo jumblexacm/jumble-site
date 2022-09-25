@@ -1,26 +1,53 @@
 import { useState } from 'react';
 import ImageModal from './ImageModal';
+import Link from 'next/link';
 import styles from './Gallery.module.css';
 
-function Gallery({ images }) {
-  const [imagesToShow, setImagesToShow] = useState(5);
+// Source: https://bobbyhadz.com/blog/javascript-check-if-url-is-image#:~:text=To%20check%20if%20a%20url,return%20true%20if%20it%20does.
+function isImage(url) {
+  return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+}
+
+function Gallery({ attachments }) {
+  const [attachmentsToShow, setAttachmentsToShow] = useState(5);
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpand = () => {
-    if (imagesToShow === 5) {
-      setImagesToShow(Object.keys(images).length);
+    if (attachmentsToShow === 5) {
+      setAttachmentsToShow(Object.keys(attachments).length);
       setExpanded(true);
     } else {
-      setImagesToShow(5);
+      setAttachmentsToShow(5);
       setExpanded(false);
     }
   };
+  
+  let nonImages = [];
+  let images = [];
+  for (const url of attachments) {
+    if (!isImage(url)) {
+      nonImages.push(url);
+    } else {
+      images.push(url);
+    }
+  }
 
   return (
     <div className={styles.galleryContainer}>
       <div className={styles.imageContainer}>
+        {nonImages.slice(
+          0, Math.min(attachmentsToShow, nonImages.length)
+        ).map((nonImage, index) => (
+          <Link href={{pathname: nonImage}}>
+            <a className={"hover:text-blue-600"}>
+              {nonImage.substring(nonImage.lastIndexOf('/') + 1)}
+            </a>
+          </Link>
+        ))}
         <div className={styles.imageWrapper}>
-          {images.slice(0, imagesToShow).map((image, index) => (
+          {images.slice(
+            0, Math.max(0, attachmentsToShow - nonImages.length)
+          ).map((image, index) => (
             <ImageModal
               key={index}
               src={image}
@@ -30,10 +57,10 @@ function Gallery({ images }) {
               layout={'responsive'}
               objectFit={'cover'}
             />
-          ))}
+        ))}
         </div>
       </div>
-      {images.length > imagesToShow || expanded ? (
+      {attachments.length > attachmentsToShow || expanded ? (
         <button
           type="button"
           className={styles.showMoreBtn}
