@@ -6,10 +6,22 @@ import { toHTML } from 'discord-markdown';
 import DOMPurify from 'isomorphic-dompurify';
 import CopyToClip from '../Share/CopyToClip';
 
+// Source: https://bobbyhadz.com/blog/javascript-check-if-url-is-image#:~:text=To%20check%20if%20a%20url,return%20true%20if%20it%20does.
+function isImage(url) {
+  return /\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+}
+
 function Post({ post, clickable = false, shareable = false }) {
   const text = DOMPurify.sanitize(
     toHTML(post.message_text, { escapeHTML: false })
   ); //Setting up Discord Markdown by converting post msg to HTML, and then escaping HTML to add styling
+  
+  let attachmentURLs = [];
+  for (const url of post.attachment_urls) {
+    if (isImage(url)) {
+      attachmentURLs.push(url);
+    }
+  }
 
   return (
     <div className={styles.postContainer}>
@@ -61,8 +73,8 @@ function Post({ post, clickable = false, shareable = false }) {
             dangerouslySetInnerHTML={{ __html: text }}
           />
         </div>
-        {post.attachment_urls.length != 0 && (
-          <Gallery images={post.attachment_urls} />
+        {attachmentURLs.length != 0 && (
+          <Gallery images={attachmentURLs} />
         )}
       </div>
     </div>
