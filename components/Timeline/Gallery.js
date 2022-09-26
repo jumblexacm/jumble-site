@@ -39,11 +39,9 @@ function Gallery({ attachments }) {
           {nonImages.slice(
             0, Math.min(attachmentsToShow, nonImages.length)
           ).map((nonImage, index) => (
-            <Link href={{pathname: nonImage}}>
-              <a className={"hover:text-blue-600"}>
+              <a className={"hover:text-blue-600"} href={nonImage} key={index}>
                 {nonImage.substring(nonImage.lastIndexOf('/') + 1)}
               </a>
-            </Link>
           ))}
         </div>
         <div className={styles.imageWrapper}>
