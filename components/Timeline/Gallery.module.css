@@ -4,6 +4,7 @@
 
 .imageContainer {
     @apply container flex flex-col justify-center p-4 mx-auto;
+    @apply z-10; /* Make even non-image attachment URLs clickable on the timeline, instead of opening the post page when clicked */
 }
 
 .imageWrapper {
