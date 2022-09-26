@@ -35,15 +35,17 @@ function Gallery({ attachments }) {
   return (
     <div className={styles.galleryContainer}>
       <div className={styles.imageContainer}>
-        {nonImages.slice(
-          0, Math.min(attachmentsToShow, nonImages.length)
-        ).map((nonImage, index) => (
-          <Link href={{pathname: nonImage}}>
-            <a className={"hover:text-blue-600"}>
-              {nonImage.substring(nonImage.lastIndexOf('/') + 1)}
-            </a>
-          </Link>
-        ))}
+        <div className={styles.nonImageWrapper}>
+          {nonImages.slice(
+            0, Math.min(attachmentsToShow, nonImages.length)
+          ).map((nonImage, index) => (
+            <Link href={{pathname: nonImage}}>
+              <a className={"hover:text-blue-600"}>
+                {nonImage.substring(nonImage.lastIndexOf('/') + 1)}
+              </a>
+            </Link>
+          ))}
+        </div>
         <div className={styles.imageWrapper}>
           {images.slice(
             0, Math.max(0, attachmentsToShow - nonImages.length)

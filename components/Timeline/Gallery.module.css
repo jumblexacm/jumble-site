@@ -4,7 +4,12 @@
 
 .imageContainer {
     @apply container flex flex-col justify-center p-4 mx-auto;
-    @apply z-10; /* Make even non-image attachment URLs clickable on the timeline, instead of opening the post page when clicked */
+}
+
+/* URLs of PDF/etc. attachments that aren't images */
+.nonImageWrapper {
+    @apply grid; /* Keep URLs one per line */
+    @apply z-10; /* Make URLs clickable/downloadable from the timeline, instead of opening the post page when clicked */
 }
 
 .imageWrapper {
