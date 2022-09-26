@@ -6,6 +6,12 @@
     @apply container flex flex-col justify-center p-4 mx-auto;
 }
 
+/* URLs of PDF/etc. attachments that aren't images */
+.nonImageWrapper {
+    @apply grid; /* Keep URLs one per line */
+    @apply z-10; /* Make URLs clickable/downloadable from the timeline, instead of opening the post page when clicked */
+}
+
 .imageWrapper {
     @apply grid flex gap-4 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-5;
 }

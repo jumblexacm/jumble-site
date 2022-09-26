@@ -62,7 +62,7 @@ function Post({ post, clickable = false, shareable = false }) {
           />
         </div>
         {post.attachment_urls.length != 0 && (
-          <Gallery images={post.attachment_urls} />
+          <Gallery attachments={post.attachment_urls} />
         )}
       </div>
     </div>
