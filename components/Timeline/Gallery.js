@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ImageModal from './ImageModal';
-import Link from 'next/link';
 import styles from './Gallery.module.css';
 
 // Source: https://bobbyhadz.com/blog/javascript-check-if-url-is-image#:~:text=To%20check%20if%20a%20url,return%20true%20if%20it%20does.
